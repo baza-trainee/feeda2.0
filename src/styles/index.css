@@ -1,0 +1,41 @@
+:root {
+	/*colors*/
+	--white: rgb(255, 255, 255);
+	--yellow: rgb(255, 189, 0);
+	--grey: rgb(147, 147, 147);
+	--black-18: rgb(18, 18, 18);
+	--dark-35: rgb(35, 35, 35);
+	--dark-53: rgb(53, 53, 53);
+	--white-text: rgb(252, 252, 252);
+	--light-yellow: rgb(253, 245, 221);
+	--blue: #0029FF;
+	--text-invalid: #DC0C31;
+	--text-valid: #14905D;
+
+
+	/*fonts*/
+
+	--title-main-medium-fs: 45px;
+	--title-main-medium-fw: 700;
+	--title-main-medium-lh: 1.16;
+
+	--title-main-small-fs: 36px;
+	--title-main-small-fw: 700;
+	--title-main-small-lh: 1.22;
+
+	--title-medium-fs: 16;
+	--title-medium-fw: 600;
+	--title-medium-lh: 1.19;
+
+	--title-large-fs: 22px;
+	--title-large-fw: 700;
+	--title-large-lh: 1.18;
+
+	--headline-large-fs: 32px;
+	--headline-large-fw: 600;
+	--headline-large-lh: 1.25;
+
+	--body-large-fs: 16px;
+	--body-large-fw: 400;
+	--body-large-lh: 1.19;
+}
