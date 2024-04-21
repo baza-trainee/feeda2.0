@@ -1,5 +1,5 @@
 import React from 'react'
-import { TitleStyled } from './Title.styled'
+import { TitleStyled } from './AuthTitle.styled'
 
 const Title = ({children}) => {
   return (
