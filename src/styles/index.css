@@ -1,13 +1,13 @@
 :root {
 	/*colors*/
-	--white: rgb(255, 255, 255);
-	--yellow: rgb(255, 189, 0);
-	--grey: rgb(147, 147, 147);
-	--black-18: rgb(18, 18, 18);
-	--dark-35: rgb(35, 35, 35);
-	--dark-53: rgb(53, 53, 53);
-	--white-text: rgb(252, 252, 252);
-	--light-yellow: rgb(253, 245, 221);
+	--white: #ffffff;
+	--yellow: #ffbd00;
+	--grey: #939393;
+	--black-18: #121212;
+	--dark-35: #232323;
+	--dark-53: #353535;
+	--white-text: #fcfcfc;
+	--light-yellow: #fdf5dd;
 	--blue: #0029FF;
 	--text-invalid: #DC0C31;
 	--text-valid: #14905D;
@@ -23,7 +23,7 @@
 	--title-main-small-fw: 700;
 	--title-main-small-lh: 1.22;
 
-	--title-medium-fs: 16;
+	--title-medium-fs: 16px;
 	--title-medium-fw: 600;
 	--title-medium-lh: 1.19;
 
