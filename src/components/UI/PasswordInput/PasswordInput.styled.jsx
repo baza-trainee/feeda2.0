@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.div`
-  width: 389px;
+  width: 398px;
   height: 79px;
   margin: 0 auto;
 `;
@@ -21,7 +21,7 @@ export const Title = styled.label`
 export const Input = styled.input`
   width: 389px;
   height: 53px;
-  color: var(--dark-35);
+  color: var(--grey);
   background-color: var(--white-text);
   border: 1px solid var(--inputs-border);
   border-radius: 4px;
@@ -32,7 +32,13 @@ export const Input = styled.input`
   padding: 15px 16px;
   position: relative;
   margin-top: 5px;
-  &::placeholder {
-    color: var(--grey);
-  }
+`;
+
+export const Icon = styled.img`
+  position: absolute;
+  top: 27px;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
 `;
