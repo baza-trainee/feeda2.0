@@ -7,4 +7,5 @@ export const TitleStyled = styled.h1`
 	font-size: var(--title-main-small-fs);
 	font-weight: var(--title-main-small-fw);
 	line-height: var(--title-main-small-lh);
+	margin: 0;
 `;

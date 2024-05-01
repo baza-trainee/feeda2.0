@@ -19,9 +19,9 @@ export const Title = styled.label`
 `;
 
 export const Input = styled.input`
-  width: 389px;
+  width: 100%;
   height: 53px;
-  color: var(--grey);
+  color: var(--dark-35);
   background-color: var(--white-text);
   border: 1px solid var(--inputs-border);
   border-radius: 4px;

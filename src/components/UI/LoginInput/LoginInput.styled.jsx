@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.div`
-  width: 389px;
+  width: 100%;
   height: 79px;
   margin: 0 auto;
 `;
@@ -19,7 +19,7 @@ export const Title = styled.label`
 `;
 
 export const Input = styled.input`
-  width: 389px;
+  width: 100%;
   height: 53px;
   color: var(--dark-35);
   background-color: var(--white-text);

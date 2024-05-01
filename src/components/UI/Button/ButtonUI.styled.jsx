@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.div`
-  width: 389px;
+  width: 100%;
   height: 56px;
   position: relative;
   margin: 0 auto;
@@ -10,7 +10,7 @@ export const Section = styled.div`
 export const Button = styled.button`
   background-color: var(--yellow);
   color: black;
-  width: 389px;
+  width: 100%;
   height: 56px;
   border: none;
   border-radius: 4px;
@@ -19,7 +19,7 @@ export const Button = styled.button`
   font-family: Exo 2;
   font-size: var(--title-large-fs);
   font-weight: var(--title-large-fw);
-  line-height: var(--title-large-lh)
+  line-height: var(--title-large-lh);
   text-align: center;
 
   &:disabled {

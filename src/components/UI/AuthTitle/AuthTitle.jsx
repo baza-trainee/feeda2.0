@@ -1,11 +1,11 @@
 import React from 'react'
 import { TitleStyled } from './AuthTitle.styled'
 
-const Title = ({children}) => {
+const AuthTitle = ({children}) => {
   return (
 	  <TitleStyled>{children}</TitleStyled>
 	  
   )
 }
 
-export default Title
+export default AuthTitle
