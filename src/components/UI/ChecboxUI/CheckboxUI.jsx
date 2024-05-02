@@ -13,9 +13,11 @@ const CheckboxUI = () => {
     <Section>
       <CheckboxWrapper>
         <Input id="checkbox" type="checkbox" />
-        <Text>Запамʼятати пароль</Text>
+        <Text htmlFor='checkbox'>
+          
+          Запамʼятати пароль</Text>
       </CheckboxWrapper>
-      <LinkWrapper>Забули пароль?</LinkWrapper>
+      <LinkWrapper to="/forgot-password">Забули пароль?</LinkWrapper>
     </Section>
   );
 };

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Section = styled.div`
   width: 398px;
@@ -10,11 +11,13 @@ export const Section = styled.div`
   overflow: hidden;
 `;
 
-export const Text = styled.span`
+export const Text = styled.label`
   font-size: var(--body-medium-fs);
   font-weight: var(--body-large-fw);
   line-height: var(--body-large-lh);
   letter-spacing: 0.10000000149011612px;
+
+  cursor:pointer;
 `;
 
 export const CheckboxWrapper = styled.div`
@@ -24,16 +27,20 @@ export const CheckboxWrapper = styled.div`
 `;
 
 export const Input = styled.input`
+  cursor: pointer;
   &[type="checkbox"] {
     width: 18px;
     height: 18px;
     margin-right: 10px;
-
+  }
 `;
 
-export const LinkWrapper = styled.div`
+export const LinkWrapper = styled(NavLink)`
   margin-left: 110px;
   font-size: var(--body-large-fs);
   font-weight: var(--body-large-fw);
   line-height: var(--body-large-lh);
+  color:inherit;
+  text-decoration:none;
 `;
+
