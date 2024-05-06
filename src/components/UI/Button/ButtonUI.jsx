@@ -2,14 +2,14 @@
 import React from 'react';
 import { Section, Button } from './ButtonUI.styled';
 
-const ButtonUI = ({disabled=true, clickFunc}) => {
+const ButtonUI = ({text, disabled=true, clickFunc}) => {
   return (
     <Section>
       <Button
         type='button'
         onClick={() => clickFunc()}
         disabled={disabled}>
-        Зареєструватися
+        {text}
       </Button>
     </Section>
   );
