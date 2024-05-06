@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const AuthContainer = styled.div`
 	display:flex;
-	height: 100vh;
+	/* height: 100vh; */
 	width: 100%;
 	align-items:center;
 	justify-content:center;
 	flex-direction:column;
+	margin-top: 125px;
 `
 
 export const FormContainer = styled.div`
