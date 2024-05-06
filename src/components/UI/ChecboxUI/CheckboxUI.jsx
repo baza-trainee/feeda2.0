@@ -8,7 +8,7 @@ import {
   LinkWrapper,
 } from './CheckboxUI.styled';
 
-const CheckboxUI = () => {
+const CheckboxUI = ({path}) => {
   return (
     <Section>
       <CheckboxWrapper>
@@ -17,7 +17,7 @@ const CheckboxUI = () => {
           
           Запамʼятати пароль</Text>
       </CheckboxWrapper>
-      <LinkWrapper to="/forgot-password">Забули пароль?</LinkWrapper>
+      {path==="/login" && <LinkWrapper to="/forgot-pass">Забули пароль?</LinkWrapper>}
     </Section>
   );
 };
