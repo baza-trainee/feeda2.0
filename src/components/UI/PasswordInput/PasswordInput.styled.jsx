@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Section = styled.div`
   width: 100%;
   height: 79px;
-  margin: 0 auto;
+  margin-bottom: 15px;
 `;
 
 export const InputWrapper = styled.div`
@@ -19,7 +19,7 @@ export const Title = styled.label`
 `;
 
 export const Input = styled.input`
-  width:100%;
+  width: 100%;
   height: 53px;
   color: var(--dark-35);
   background-color: var(--white-text);
@@ -41,4 +41,10 @@ export const Icon = styled.img`
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
+`;
+
+export const ErrorMessage = styled.p`
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 `;
