@@ -1,18 +1,49 @@
 'use client';
 import React, { useState } from 'react';
+import * as Yup from 'yup';
 import {
   Section,
   InputWrapper,
   Title,
   Input,
   Icon,
+  ErrorMessage,
 } from './PasswordInput.styled';
 
-const PasswordInput = ({ title, errorText }) => {
+const PasswordInput = ({ title }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [password, setPassword] = useState('');
+  const [errorText, setErrorText] = useState('');
   const inputType = isEditing ? 'text' : 'password';
   const handleEditToggle = () => {
     setIsEditing(!isEditing);
+  };
+
+  const validationSchema = Yup.object().shape({
+    password: Yup.string()
+      .test(
+        'length',
+        'Пароль має містити мінімум 8 символів',
+        (value) => (value ? value.length >= 8 : true)
+      )
+      .required('Поле вводу паролю не може бути порожнім'),
+  });
+
+  const handleChange = async (event) => {
+    const newPassword = event.target.value;
+    setPassword(newPassword);
+    let error = '';
+
+    try {
+      await validationSchema.validate(
+        { password: newPassword },
+        { abortEarly: false }
+      );
+    } catch (validationError) {
+      error = validationError.errors.join(' ');
+    }
+
+    setErrorText(error);
   };
 
   return (
@@ -23,7 +54,8 @@ const PasswordInput = ({ title, errorText }) => {
           id="passwordInput"
           type={inputType}
           placeholder="Пароль"
-          errorText={errorText}
+          value={password}
+          onChange={handleChange}
         />
         <label htmlFor="passwordInput">
           <Icon
@@ -33,9 +65,7 @@ const PasswordInput = ({ title, errorText }) => {
         </label>
       </InputWrapper>
       {!!errorText && (
-        <ErrorMessage htmlFor={errorText}>
-          {errorText}
-        </ErrorMessage>
+        <ErrorMessage>{errorText}</ErrorMessage>
       )}
     </Section>
   );

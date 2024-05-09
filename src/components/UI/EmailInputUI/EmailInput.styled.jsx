@@ -33,3 +33,8 @@ export const Input = styled.input`
   position: relative;
   margin-top: 5px;
 `;
+
+export const ErrorMessage = styled.p`
+  color: red;
+  font-size: 12px;
+`;
