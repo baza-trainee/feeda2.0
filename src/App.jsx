@@ -2,6 +2,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Layout from './components/Layout/Layout';
+import MainPage from './pages/main/MainPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           path="/forgot-pass"
           element={<RegisterPage />}
         />
+        <Route path="/main" element={<MainPage />} />
       </Routes>
     </>
   );
