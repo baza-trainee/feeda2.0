@@ -5,9 +5,7 @@ import Sidebar from '../../components/UI/Sidebar/Sidebar';
 const MainPage = () => {
   return (
     <>
-      <Main>
-        <Sidebar></Sidebar>
-      </Main>
+      <Main></Main>
     </>
   );
 };

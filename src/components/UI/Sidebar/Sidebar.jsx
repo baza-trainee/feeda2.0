@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   DropdownButton,
   DropdownMenu,
@@ -18,6 +18,7 @@ import { FiPlus } from 'react-icons/fi';
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isDropdownOpen, setisDropdownOpen] =
     useState(false);
 
@@ -25,40 +26,59 @@ const Sidebar = () => {
     setisDropdownOpen(!isDropdownOpen);
   };
 
+  const shouldRenderSidebar = (path) => {
+    const hiddenPaths = [
+      '/login',
+      '/register',
+      '/forgot-pass',
+    ];
+    return !hiddenPaths.includes(path);
+  };
+
   return (
     <>
-      <DropdownButton onClick={handleDropdownClick}>
-        <FaUsers size={18} />
-        <ButtonText>Кандидати</ButtonText>
-        {isDropdownOpen ? (
-          <IoIosArrowUp size={24} />
-        ) : (
-          <IoIosArrowDown size={24} />
-        )}
-      </DropdownButton>
-      {isDropdownOpen && (
-        <DropdownMenu>
-          <DropdownItem onClick={() => navigate('/failed')}>
-            <img
-              src="../../../../public/NotChecked.svg"
-              width="18"
-              height="18"></img>
-            <ButtonText>Не пройшов</ButtonText>
-          </DropdownItem>
-          <DropdownItem onClick={() => navigate('/passed')}>
-            <IoCheckmarkDoneSharp size={18} />
-            <ButtonText>Пройшов</ButtonText>
-          </DropdownItem>
-          <DropdownItem onClick={() => navigate('/add')}>
-            <FiPlus size={18} />
-            <ButtonText>Додати кандидата</ButtonText>
-          </DropdownItem>
-        </DropdownMenu>
+      {shouldRenderSidebar(location.pathname) && (
+        <>
+          <DropdownButton onClick={handleDropdownClick}>
+            <FaUsers size={18} />
+            <ButtonText>Кандидати</ButtonText>
+            {isDropdownOpen ? (
+              <IoIosArrowUp size={24} />
+            ) : (
+              <IoIosArrowDown size={24} />
+            )}
+          </DropdownButton>
+          {isDropdownOpen && (
+            <DropdownMenu>
+              <DropdownItem
+                onClick={() => navigate('/failed')}>
+                <img
+                  src="/NotChecked.svg"
+                  width="18"
+                  height="18"
+                  alt="Not Checked"
+                />
+                <ButtonText>Не пройшов</ButtonText>
+              </DropdownItem>
+              <DropdownItem
+                onClick={() => navigate('/passed')}>
+                <IoCheckmarkDoneSharp size={18} />
+                <ButtonText>Пройшов</ButtonText>
+              </DropdownItem>
+              <DropdownItem
+                onClick={() => navigate('/add')}>
+                <FiPlus size={18} />
+                <ButtonText>Додати кандидата</ButtonText>
+              </DropdownItem>
+            </DropdownMenu>
+          )}
+          <SettingsButton
+            onClick={() => navigate('/settings')}>
+            <SlSettings size={18} />
+            <ButtonText>Налаштування</ButtonText>
+          </SettingsButton>
+        </>
       )}
-      <SettingsButton onClick={() => navigate('/settings')}>
-        <SlSettings size={18} />
-        <ButtonText>Налаштування</ButtonText>
-      </SettingsButton>
     </>
   );
 };
