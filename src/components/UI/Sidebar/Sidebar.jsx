@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
+  SidebarSection,
   DropdownButton,
   DropdownMenu,
   DropdownItem,
@@ -39,44 +40,46 @@ const Sidebar = () => {
     <>
       {shouldRenderSidebar(location.pathname) && (
         <>
-          <DropdownButton onClick={handleDropdownClick}>
-            <FaUsers size={18} />
-            <ButtonText>Кандидати</ButtonText>
-            {isDropdownOpen ? (
-              <IoIosArrowUp size={24} />
-            ) : (
-              <IoIosArrowDown size={24} />
+          <SidebarSection>
+            <DropdownButton onClick={handleDropdownClick}>
+              <FaUsers size={18} />
+              <ButtonText>Кандидати</ButtonText>
+              {isDropdownOpen ? (
+                <IoIosArrowUp size={24} />
+              ) : (
+                <IoIosArrowDown size={24} />
+              )}
+            </DropdownButton>
+            {isDropdownOpen && (
+              <DropdownMenu>
+                <DropdownItem
+                  onClick={() => navigate('/failed')}>
+                  <img
+                    src="/NotChecked.svg"
+                    width="18"
+                    height="18"
+                    alt="Not Checked"
+                  />
+                  <ButtonText>Не пройшов</ButtonText>
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => navigate('/passed')}>
+                  <IoCheckmarkDoneSharp size={18} />
+                  <ButtonText>Пройшов</ButtonText>
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => navigate('/add')}>
+                  <FiPlus size={18} />
+                  <ButtonText>Додати кандидата</ButtonText>
+                </DropdownItem>
+              </DropdownMenu>
             )}
-          </DropdownButton>
-          {isDropdownOpen && (
-            <DropdownMenu>
-              <DropdownItem
-                onClick={() => navigate('/failed')}>
-                <img
-                  src="/NotChecked.svg"
-                  width="18"
-                  height="18"
-                  alt="Not Checked"
-                />
-                <ButtonText>Не пройшов</ButtonText>
-              </DropdownItem>
-              <DropdownItem
-                onClick={() => navigate('/passed')}>
-                <IoCheckmarkDoneSharp size={18} />
-                <ButtonText>Пройшов</ButtonText>
-              </DropdownItem>
-              <DropdownItem
-                onClick={() => navigate('/add')}>
-                <FiPlus size={18} />
-                <ButtonText>Додати кандидата</ButtonText>
-              </DropdownItem>
-            </DropdownMenu>
-          )}
-          <SettingsButton
-            onClick={() => navigate('/settings')}>
-            <SlSettings size={18} />
-            <ButtonText>Налаштування</ButtonText>
-          </SettingsButton>
+            <SettingsButton
+              onClick={() => navigate('/settings')}>
+              <SlSettings size={18} />
+              <ButtonText>Налаштування</ButtonText>
+            </SettingsButton>
+          </SidebarSection>
         </>
       )}
     </>

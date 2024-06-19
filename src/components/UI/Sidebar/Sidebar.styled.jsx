@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const SidebarSection = styled.div`
+  margin: 32px 24px 32px 32px;
+`;
+
 export const DropdownButton = styled.button`
   background: var(--dark-35);
   width: 286px;
