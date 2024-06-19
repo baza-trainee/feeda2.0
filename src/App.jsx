@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Layout from './components/Layout/Layout';
@@ -9,10 +9,7 @@ function App() {
     <>
       <Layout />
       <Routes>
-        <Route
-          path="/"
-          element={<Navigate to="/login" />}
-        />
+        <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/register"
@@ -22,7 +19,6 @@ function App() {
           path="/forgot-pass"
           element={<RegisterPage />}
         />
-        <Route path="/main" element={<MainPage />} />
       </Routes>
     </>
   );
