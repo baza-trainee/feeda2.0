@@ -13,6 +13,15 @@ import {
 const Header = () => {
   const location = useLocation();
 
+  const shouldRenderMainHeader = (path) => {
+    const hiddenPaths = [
+      '/login',
+      '/register',
+      '/forgot-pass',
+    ];
+    return !hiddenPaths.includes(path);
+  };
+
   const getPageTitle = (path) => {
     switch (path) {
       case '/settings':
@@ -24,22 +33,24 @@ const Header = () => {
       case '/add':
         return 'Додавання кандидата';
       default:
-        return 'Головна';
+        return;
     }
   };
 
   return (
     <HeaderStyled>
       <HeaderLogo>Feeda</HeaderLogo>
-      <MainHeader>
-        <PageTitle>
-          {getPageTitle(location.pathname)}
-        </PageTitle>
-        <UserInfo>
-          <UserPhoto src="../../../../public/userPhoto.svg"></UserPhoto>
-          <UserName>User.name</UserName>
-        </UserInfo>
-      </MainHeader>
+      {shouldRenderMainHeader(location.pathname) && (
+        <MainHeader>
+          <PageTitle>
+            {getPageTitle(location.pathname)}
+          </PageTitle>
+          <UserInfo>
+            <UserPhoto src="/userPhoto.svg"></UserPhoto>
+            <UserName>User.name</UserName>
+          </UserInfo>
+        </MainHeader>
+      )}
     </HeaderStyled>
   );
 };
