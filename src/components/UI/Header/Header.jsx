@@ -33,7 +33,7 @@ const Header = () => {
       case '/add':
         return 'Додавання кандидата';
       default:
-        return 'Головна';
+        return;
     }
   };
 
@@ -46,7 +46,7 @@ const Header = () => {
             {getPageTitle(location.pathname)}
           </PageTitle>
           <UserInfo>
-            <UserPhoto src="../../../../public/userPhoto.svg"></UserPhoto>
+            <UserPhoto src="/userPhoto.svg"></UserPhoto>
             <UserName>User.name</UserName>
           </UserInfo>
         </MainHeader>
