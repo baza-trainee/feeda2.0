@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   DropdownButton,
   DropdownMenu,
@@ -16,6 +17,7 @@ import { FaUsers } from 'react-icons/fa6';
 import { FiPlus } from 'react-icons/fi';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const [isDropdownOpen, setisDropdownOpen] =
     useState(false);
 
@@ -36,38 +38,24 @@ const Sidebar = () => {
       </DropdownButton>
       {isDropdownOpen && (
         <DropdownMenu>
-          <DropdownItem
-            onClick={() =>
-              console.log('Відкрити вкладку "Не пройшов"')
-            }>
+          <DropdownItem onClick={() => navigate('/failed')}>
             <img
               src="../../../../public/NotChecked.svg"
               width="18"
               height="18"></img>
             <ButtonText>Не пройшов</ButtonText>
           </DropdownItem>
-          <DropdownItem
-            onClick={() =>
-              console.log('Відкрити вкладку "Пройшов"')
-            }>
+          <DropdownItem onClick={() => navigate('/passed')}>
             <IoCheckmarkDoneSharp size={18} />
             <ButtonText>Пройшов</ButtonText>
           </DropdownItem>
-          <DropdownItem
-            onClick={() =>
-              console.log(
-                'Відкрити вкладку "Додати кандидата"'
-              )
-            }>
+          <DropdownItem onClick={() => navigate('/add')}>
             <FiPlus size={18} />
             <ButtonText>Додати кандидата</ButtonText>
           </DropdownItem>
         </DropdownMenu>
       )}
-      <SettingsButton
-        onClick={() =>
-          console.log('Відкрити вкладку "Налаштування"')
-        }>
+      <SettingsButton onClick={() => navigate('/settings')}>
         <SlSettings size={18} />
         <ButtonText>Налаштування</ButtonText>
       </SettingsButton>
