@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Button } from './ButtonUI.styled';
+import { Button } from './SettingsButton.styled';
 
 const ButtonUI = ({ text, disabled = true, clickFunc }) => {
   return (

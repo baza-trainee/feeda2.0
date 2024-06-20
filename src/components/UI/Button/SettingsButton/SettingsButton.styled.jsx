@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  width: 100%;
+  width: 331px;
   background-color: var(--dark-35);
   color: var(--white-text);
   height: 56px;

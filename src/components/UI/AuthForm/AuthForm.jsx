@@ -68,7 +68,6 @@ const AuthForm = () => {
                 text={'Зареєструватись'}
                 disabled={false}
                 clickFunc={submitForm}
-                width="100%"
               />
             )}
             {pathname === '/login' && (
@@ -76,7 +75,6 @@ const AuthForm = () => {
                 text={'Вхід'}
                 disabled={false}
                 clickFunc={submitForm}
-                width="100%"
               />
             )}
             {pathname === '/forgot-pass' && (
@@ -84,7 +82,6 @@ const AuthForm = () => {
                 text={'Надіслати'}
                 disabled={false}
                 clickFunc={submitForm}
-                width="100%"
               />
             )}
           </FormStyled>

@@ -1,21 +1,18 @@
 import React from 'react';
 import { ButtonAreaSection } from './ButtonArea.styled';
-import ButtonUI from '../../Button/PrimaryButton/ButtonUI';
+import SettingsButton from '../../Button/SettingsButton/SettingsButton';
 import SecondaryButton from '../../Button/SecondaryButton/SecondaryButton';
 
 const ButtonArea = () => {
   return (
     <ButtonAreaSection>
       <SecondaryButton text="Cкасувати" />
-      <ButtonUI
+      <SettingsButton
         text="Скасувати"
-        disabled={false}
-        width="331px"
+        disabled={true}
         clickFunc={() =>
           console.log('Має відправляти форму')
         }
-        backgroundColor="#232323"
-        color="#fcfcfc"
       />
     </ButtonAreaSection>
   );
