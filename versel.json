@@ -1,36 +1,15 @@
 {
-  "routes": [
+  "rewrites": [
+    { "source": "/", "destination": "/" },
+    { "source": "/settings", "destination": "/settings" },
+    { "source": "/failed", "destination": "/failed" },
+    { "source": "/passed", "destination": "/passed" },
+    { "source": "/add", "destination": "/add" },
+    { "source": "/login", "destination": "/login" },
+    { "source": "/register", "destination": "/register" },
     {
-      "src": "/",
-      "dest": "/"
-    },
-    {
-      "src": "/settings",
-      "dest": "/"
-    },
-    {
-      "src": "/failed",
-      "dest": "/"
-    },
-    {
-      "src": "/passed",
-      "dest": "/"
-    },
-    {
-      "src": "/add",
-      "dest": "/"
-    },
-    {
-      "src": "/login",
-      "dest": "/"
-    },
-    {
-      "src": "/register",
-      "dest": "/"
-    },
-    {
-      "src": "/forgot-pass",
-      "dest": "/"
+      "source": "/forgot-pass",
+      "destination": "/forgot-pass"
     }
   ]
 }
