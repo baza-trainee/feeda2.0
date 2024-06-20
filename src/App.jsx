@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Layout from './components/Layout/Layout';
@@ -12,21 +12,22 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/login" />} />
           <Route
-            path="/settings"
+            path="settings"
             element={<SettingsPage />}
           />
-          <Route path="/failed" element={<FailedPage />} />
-          <Route path="/passed" element={<PassedPage />} />
-          <Route path="/add" element={<AddPage />} />
+          <Route path="failed" element={<FailedPage />} />
+          <Route path="passed" element={<PassedPage />} />
+          <Route path="add" element={<AddPage />} />
 
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route
-            path="/register"
+            path="register"
             element={<RegisterPage />}
           />
           <Route
-            path="/forgot-pass"
+            path="forgot-pass"
             element={<RegisterPage />}
           />
         </Route>
