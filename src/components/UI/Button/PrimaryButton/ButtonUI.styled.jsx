@@ -1,16 +1,8 @@
 import styled from 'styled-components';
 
-export const Section = styled.div`
-  width: 100%;
-  height: 56px;
-  position: relative;
-  margin: 0 auto;
-`;
-
 export const Button = styled.button`
   background-color: var(--yellow);
   color: black;
-  width: 100%;
   height: 56px;
   border: none;
   border-radius: 4px;
@@ -21,6 +13,16 @@ export const Button = styled.button`
   font-weight: var(--title-large-fw);
   line-height: var(--title-large-lh);
   text-align: center;
+
+  &:hover {
+    color: var(--yellow);
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--yellow);
+    color: var(--dark-35);
+  }
 
   &:disabled {
     background-color: var(--disabled-button);

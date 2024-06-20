@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Section = styled.div`
   width: 389px;
   height: 79px;
-  margin: 0 auto;
 `;
 
 export const InputWrapper = styled.div`
