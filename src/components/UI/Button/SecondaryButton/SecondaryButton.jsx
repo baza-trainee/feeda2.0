@@ -2,9 +2,12 @@
 import React from 'react';
 import { Button } from './SecondaryButton.styled';
 
-const ButtonUI = ({ text, clickFunc }) => {
+const ButtonUI = ({ text, disabled = true, clickFunc }) => {
   return (
-    <Button type="button" onClick={() => clickFunc()}>
+    <Button
+      type="button"
+      disabled={disabled}
+      onClick={() => clickFunc()}>
       {text}
     </Button>
   );

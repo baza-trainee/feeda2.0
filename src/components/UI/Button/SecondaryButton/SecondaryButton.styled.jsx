@@ -12,8 +12,19 @@ export const Button = styled.button`
   text-align: center;
   margin-right: 12px;
 
+  &:hover {
+    background-color: var(--sidebar-buttons-active);
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--yellow);
+    color: var(--dark-35);
+  }
+
   &:disabled {
-    background-color: var(--disabled-button);
-    color: var(--grey);
+    background-color: var(--white-text);
+    color: var(--disabled-button);
+    cursor: default;
   }
 `;
