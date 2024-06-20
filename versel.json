@@ -1,3 +1,15 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "rewrites": [
+    { "source": "/", "destination": "/" },
+    { "source": "/settings", "destination": "/settings" },
+    { "source": "/failed", "destination": "/failed" },
+    { "source": "/passed", "destination": "/passed" },
+    { "source": "/add", "destination": "/add" },
+    { "source": "/login", "destination": "/login" },
+    { "source": "/register", "destination": "/register" },
+    {
+      "source": "/forgot-pass",
+      "destination": "/forgot-pass"
+    }
+  ]
 }
