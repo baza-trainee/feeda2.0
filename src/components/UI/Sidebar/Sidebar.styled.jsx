@@ -24,6 +24,7 @@ export const DropdownButton = styled.button`
 
   &:hover {
     color: var(--yellow);
+    border: solid var(--yellow) 1px;
   }
 
   &:active,
@@ -93,6 +94,7 @@ export const SettingsButton = styled.button`
 
   &:hover {
     color: var(--yellow);
+    border: solid var(--yellow) 1px;
   }
 
   &:active,

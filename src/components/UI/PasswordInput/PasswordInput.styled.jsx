@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const Section = styled.div`
-  width: 100%;
+  width: 389px;
   height: 79px;
-  margin-bottom: 15px;
 `;
 
 export const InputWrapper = styled.div`
