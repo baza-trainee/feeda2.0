@@ -6,10 +6,13 @@ import EmailInput from '../../EmailInputUI/EmailInput';
 const SettingsForm = () => {
   return (
     <SettingsFormSection>
-      <LoginInput title="Імʼя" />
-      <EmailInput title="Електронна пошта" />
-      <LoginInput title="Прізвище" />
-      <LoginInput title="Телефон" />
+      <LoginInput title="Імʼя" placeholder="Імʼя" />
+      <EmailInput
+        title="Електронна пошта"
+        placeholder="Електронна пошта"
+      />
+      <LoginInput title="Прізвище" placeholder="Прізвище" />
+      <LoginInput title="Телефон" placeholder="Телефон" />
     </SettingsFormSection>
   );
 };

@@ -45,7 +45,10 @@ const AuthForm = () => {
           <FormStyled>
             {(pathname === '/register' ||
               pathname === '/login') && (
-              <LoginInput title={'Логін'} />
+              <LoginInput
+                title={'Логін'}
+                placeholder="Логін"
+              />
             )}
             {(pathname === '/register' ||
               pathname === '/forgot-pass') && (
