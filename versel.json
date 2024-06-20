@@ -6,31 +6,31 @@
     },
     {
       "src": "/settings",
-      "dest": "/settings"
+      "dest": "/"
     },
     {
       "src": "/failed",
-      "dest": "/failed"
+      "dest": "/"
     },
     {
       "src": "/passed",
-      "dest": "/passed"
+      "dest": "/"
     },
     {
       "src": "/add",
-      "dest": "/add"
+      "dest": "/"
     },
     {
       "src": "/login",
-      "dest": "/login"
+      "dest": "/"
     },
     {
       "src": "/register",
-      "dest": "/register"
+      "dest": "/"
     },
     {
       "src": "/forgot-pass",
-      "dest": "/forgot-pass"
+      "dest": "/"
     }
   ]
 }
