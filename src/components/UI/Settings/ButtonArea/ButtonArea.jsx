@@ -6,12 +6,18 @@ import SecondaryButton from '../../Button/SecondaryButton/SecondaryButton';
 const ButtonArea = () => {
   return (
     <ButtonAreaSection>
-      <SecondaryButton text="Cкасувати" />
-      <SettingsButton
-        text="Скасувати"
+      <SecondaryButton
+        text="Cкасувати"
         disabled={true}
         clickFunc={() =>
-          console.log('Має відправляти форму')
+          console.log('Має скидувати всі інпути')
+        }
+      />
+      <SettingsButton
+        text="Зберігти зміни"
+        disabled={true}
+        clickFunc={() =>
+          console.log('Має ідправляти форму')
         }
       />
     </ButtonAreaSection>
