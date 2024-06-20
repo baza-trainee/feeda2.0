@@ -1,8 +1,36 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/settings",
+      "dest": "/settings"
+    },
+    {
+      "src": "/failed",
+      "dest": "/failed"
+    },
+    {
+      "src": "/passed",
+      "dest": "/passed"
+    },
+    {
+      "src": "/add",
+      "dest": "/add"
+    },
+    {
+      "src": "/login",
+      "dest": "/login"
+    },
+    {
+      "src": "/register",
+      "dest": "/register"
+    },
+    {
+      "src": "/forgot-pass",
+      "dest": "/forgot-pass"
     }
   ]
 }
