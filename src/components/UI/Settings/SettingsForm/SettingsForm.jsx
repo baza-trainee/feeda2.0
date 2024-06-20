@@ -2,6 +2,7 @@ import React from 'react';
 import { SettingsFormSection } from './SettigsForm.styled';
 import LoginInput from '../../LoginInput/LoginInput';
 import EmailInput from '../../EmailInputUI/EmailInput';
+import PhoneInput from '../../PhoneInput/PhoneInput';
 
 const SettingsForm = () => {
   return (
@@ -12,7 +13,7 @@ const SettingsForm = () => {
         placeholder="Електронна пошта"
       />
       <LoginInput title="Прізвище" placeholder="Прізвище" />
-      <LoginInput title="Телефон" placeholder="Телефон" />
+      <PhoneInput title="Телефон" placeholder="Телефон" />
     </SettingsFormSection>
   );
 };
