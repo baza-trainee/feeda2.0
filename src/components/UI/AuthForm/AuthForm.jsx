@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LoginInput from '../LoginInput/LoginInput';
+import TextInput from '../TextInput/TextInput';
 import PasswordInput from '../PasswordInput/PasswordInput';
 import ButtonUI from '../Button/PrimaryButton/ButtonUI';
 import CheckboxUI from '../ChecboxUI/CheckboxUI';
@@ -45,7 +45,7 @@ const AuthForm = () => {
           <FormStyled>
             {(pathname === '/register' ||
               pathname === '/login') && (
-              <LoginInput
+              <TextInput
                 title={'Логін'}
                 placeholder="Логін"
               />

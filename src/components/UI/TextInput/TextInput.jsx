@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Section,
   InputWrapper,
   Title,
   Input,
-} from './LoginInput.styled';
+} from './TextInput.styled';
 
-const LoginInput = ({ title, errorText, placeholder }) => {
+const TextInput = ({ title, errorText, placeholder }) => {
   return (
     <Section>
       {!!title && <Title htmlFor={title}>{title}</Title>}
       <InputWrapper>
         <Input
-          id="loginInput"
           type="text"
           placeholder={placeholder}
           errorText={errorText}
@@ -27,6 +26,6 @@ const LoginInput = ({ title, errorText, placeholder }) => {
   );
 };
 
-LoginInput.displayName = 'LoginInput';
+TextInput.displayName = 'LoginInput';
 
-export default LoginInput;
+export default TextInput;

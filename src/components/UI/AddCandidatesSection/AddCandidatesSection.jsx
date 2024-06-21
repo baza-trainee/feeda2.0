@@ -4,25 +4,27 @@ import {
   Form,
   ButtonSection,
 } from './Add.CandidatesSection.styled';
-import LoginInput from '../LoginInput/LoginInput';
+import TextInput from '../TextInput/TextInput';
 import EmailInput from '../EmailInputUI/EmailInput';
 import PhoneInput from '../PhoneInput/PhoneInput';
 import ButtonUI from '../Button/PrimaryButton/ButtonUI';
+import DateInput from '../DateInput/DateInput';
+import SelectOptions from '../SelectOptions/SelectOptions';
 
 const AddCandidatesSection = () => {
   return (
     <AddCandidatesFormSection>
       <Form>
-        <LoginInput title="Імʼя" placeholder="Імʼя" />
-        <LoginInput
+        <TextInput title="Імʼя" placeholder="Імʼя" />
+        <TextInput
           title="Прізвище"
           placeholder="Прізвище"
         />
-        <LoginInput
+        <TextInput
           title="Спеціалізація (стек)"
           placeholder="Спеціалізація (стек)"
         />
-        <LoginInput
+        <TextInput
           title="Аккаунт в лінкедін"
           placeholder="Аккаунт в лінкедін"
         />
@@ -31,19 +33,19 @@ const AddCandidatesSection = () => {
           title="Телефон"
           placeholder="+380 *********"
         />
-        <LoginInput
+        <TextInput
           title="Місто (країна)"
           placeholder="Місто"
         />
-        <LoginInput
-          title="Статус"
-          placeholder="Пройшов/ Не пройшшов"
+        <SelectOptions
+          title={'Статус'}
+          placeholder={'Пройшов/Не пройшов'}
         />
-        <LoginInput
+        <DateInput
           title="Дата співбесіди"
           placeholder="03/02/2014"
         />
-        <LoginInput
+        <DateInput
           title="Дата відправлення листа"
           placeholder="06/05/2024"
         />
