@@ -11,6 +11,7 @@ export const Button = styled.button`
   font-weight: var(--title-medium-fw);
   text-align: center;
   margin-right: 12px;
+  margin-bottom: 16px;
 
   &:hover {
     background-color: var(--sidebar-buttons-active);

@@ -7,7 +7,7 @@ import {
 import TextInput from '../TextInput/TextInput';
 import EmailInput from '../EmailInputUI/EmailInput';
 import PhoneInput from '../PhoneInput/PhoneInput';
-import ButtonUI from '../Button/PrimaryButton/ButtonUI';
+import PrimaryButton from '../Button/PrimaryButton/PrimaryButton';
 import DateInput from '../DateInput/DateInput';
 import SelectOptions from '../SelectOptions/SelectOptions';
 
@@ -51,7 +51,13 @@ const AddCandidatesSection = () => {
         />
       </Form>
       <ButtonSection>
-        <ButtonUI text="Зареєструвати кандидата" />
+        <PrimaryButton
+          disabled={false}
+          clickFunc={() =>
+            console.log('Має реєструвати кандидата')
+          }>
+          <span>Зареєструвати кандидата</span>
+        </PrimaryButton>
       </ButtonSection>
     </AddCandidatesFormSection>
   );
