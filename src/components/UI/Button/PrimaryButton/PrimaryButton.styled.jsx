@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  width: 331px;
+  width: 100%;
   background-color: var(--dark-35);
   color: var(--white-text);
   height: 56px;
@@ -14,6 +14,7 @@ export const Button = styled.button`
   font-weight: var(--title-large-fw);
   line-height: var(--title-large-lh);
   text-align: center;
+  margin-bottom: 16px;
 
   &:hover {
     color: var(--yellow);
