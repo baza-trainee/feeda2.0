@@ -16,6 +16,7 @@ import { SlSettings } from 'react-icons/sl';
 import { IoCheckmarkDoneSharp } from 'react-icons/io5';
 import { FaUsers } from 'react-icons/fa6';
 import { FiPlus } from 'react-icons/fi';
+import ButtonUI from '../Button/PrimaryButton/ButtonUI';
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -74,11 +75,23 @@ const Sidebar = () => {
                 </DropdownItem>
               </DropdownMenu>
             )}
-            <SettingsButton
-              onClick={() => navigate('/settings')}>
-              <SlSettings size={18} />
-              <ButtonText>Налаштування</ButtonText>
-            </SettingsButton>
+            <ButtonUI
+              text="Налаштування"
+              clickFunc={() => navigate('/settings')}
+              disabled={false}
+              fontSize="16px"
+              fontWeight="600"
+              textAlign="left"
+              display="flex"
+              justifyContent="space-around"
+              gap="2px">
+              <SlSettings
+                style={{
+                  width: '18px',
+                  height: '16px',
+                }}
+              />
+            </ButtonUI>
           </SidebarSection>
         </>
       )}
