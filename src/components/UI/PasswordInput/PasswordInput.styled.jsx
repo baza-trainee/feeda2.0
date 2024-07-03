@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Section = styled.div`
   width: 389px;
-  height: 79px;
+  height: auto;
 `;
 
 export const InputWrapper = styled.div`
@@ -45,5 +45,5 @@ export const Icon = styled.img`
 export const ErrorMessage = styled.p`
   color: red;
   font-size: 12px;
-  margin-top: 5px;
+  margin: 5px;
 `;
