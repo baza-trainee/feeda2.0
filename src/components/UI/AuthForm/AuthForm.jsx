@@ -2,7 +2,7 @@ import React from 'react';
 
 import TextInput from '../TextInput/TextInput';
 import PasswordInput from '../PasswordInput/PasswordInput';
-import ButtonUI from '../Button/PrimaryButton/ButtonUI';
+import PrimaryButton from '../Button/PrimaryButton/PrimaryButton';
 import CheckboxUI from '../ChecboxUI/CheckboxUI';
 import EmailInput from '../EmailInputUI/EmailInput';
 import AuthTitle from '../AuthTitle/AuthTitle';
@@ -64,25 +64,27 @@ const AuthForm = () => {
               <CheckboxUI path={pathname} />
             )}
             {pathname === '/register' && (
-              <ButtonUI
-                text={'Зареєструватись'}
+              <PrimaryButton
                 disabled={false}
-                clickFunc={submitForm}
-              />
+                clickFunc={submitForm}>
+                <span>Зареєструватись</span>
+              </PrimaryButton>
             )}
             {pathname === '/login' && (
-              <ButtonUI
+              <PrimaryButton
                 text={'Вхід'}
                 disabled={false}
-                clickFunc={submitForm}
-              />
+                clickFunc={submitForm}>
+                <span>Вхід</span>
+              </PrimaryButton>
             )}
             {pathname === '/forgot-pass' && (
-              <ButtonUI
+              <PrimaryButton
                 text={'Надіслати'}
                 disabled={false}
-                clickFunc={submitForm}
-              />
+                clickFunc={submitForm}>
+                <span>Надіслати</span>
+              </PrimaryButton>
             )}
           </FormStyled>
         </FormContainer>

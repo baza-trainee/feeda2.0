@@ -1,19 +1,16 @@
 'use client';
 import React from 'react';
-import { Button } from './ButtonUI.styled';
+import { Button } from './PrimaryButton.styled';
 
-const ButtonUI = (props) => {
+const PrimaryButton = (props) => {
   const {
     children,
-    text,
     disabled = true,
     clickFunc,
     fontSize,
     fontWeight,
     textAlign,
-    display,
-    justifyContent,
-    gap,
+    width,
   } = props;
   return (
     <Button
@@ -24,16 +21,13 @@ const ButtonUI = (props) => {
         fontSize: fontSize,
         fontWeight: fontWeight,
         textAlign: textAlign,
-        display: display,
-        justifyContent: justifyContent,
-        gap: gap,
+        width: width,
       }}>
       {children}
-      {text}
     </Button>
   );
 };
 
-ButtonUI.displayName = 'ButtonUI';
+PrimaryButton.displayName = 'PrimaryButton';
 
-export default ButtonUI;
+export default PrimaryButton;
