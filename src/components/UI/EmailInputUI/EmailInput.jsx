@@ -9,10 +9,11 @@ import {
   ErrorMessage,
 } from './EmailInput.styled';
 
-const EmailInput = ({ title }) => {
+const EmailInput = ({ title, placeholder }) => {
   const [email, setEmail] = useState('');
   const [errorText, setErrorText] = useState('');
 
+  // make separate validation schema file for all validations
   const validationSchema = object().shape({
     email: string()
       .email('Неправильний формат електронної пошти')
@@ -45,16 +46,16 @@ const EmailInput = ({ title }) => {
         <Input
           id="emailInput"
           type="email"
-          placeholder="E-mail"
+          placeholder={placeholder}
           value={email}
           onChange={handleChange}
         />
+        {!!errorText && (
+          <ErrorMessage htmlFor="emailInput">
+            {errorText}
+          </ErrorMessage>
+        )}
       </InputWrapper>
-      {!!errorText && (
-        <ErrorMessage htmlFor="emailInput">
-          {errorText}
-        </ErrorMessage>
-      )}
     </Section>
   );
 };
