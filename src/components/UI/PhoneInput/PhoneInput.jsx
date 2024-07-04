@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { object, string } from 'yup';
+import { phoneValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
   InputWrapper,
@@ -7,7 +7,7 @@ import {
   Input,
   ErrorMessage,
 } from './PhoneInput.styled';
-import handleOnChange from '../../../handlers/handleOnChange';
+import { handleOnChange } from '../../../handlers/handlers';
 
 const PhoneInput = ({
   title,
@@ -18,28 +18,12 @@ const PhoneInput = ({
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
 
-  const phoneRegExp =
-    /^(?!(\+?7|8)\d{10}$)\+?\d{1,3}?\d{9}$/;
-
-  // make separate validation schema file for all validations
-
-  const validationSchema = object().shape({
-    phone: string()
-      .required(
-        'Поле номера телефону обовʼязкове для заповнення'
-      )
-      .matches(
-        phoneRegExp,
-        'Неправильний формат номера телефону (наприклад, +380501234567 або 0931234567)'
-      ),
-  });
-
   useEffect(() => {
     const validateInput = async () => {
       if (!empty) return;
       let error = '';
       try {
-        await validationSchema.validate(
+        await phoneValidationSchema.validate(
           { phone: value },
           { abortEarly: false }
         );

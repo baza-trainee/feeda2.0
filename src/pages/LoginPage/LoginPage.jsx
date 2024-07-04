@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AuthForm from '../../components/UI/AuthForm/AuthForm';
-import handleSubmit from '../../handlers/handleSubmit';
+import { handleSubmit } from '../../handlers/handlers';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({

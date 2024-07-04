@@ -1,0 +1,46 @@
+import { object, string, date } from 'yup';
+
+export const textValidationSchema = object().shape({
+  name: string().required(
+    'Поле обовʼязкове для заповнення'
+  ),
+});
+
+export const dateValidationSchema = object().shape({
+  date: date()
+    .max(
+      new Date(),
+      'Дата не може бути пізніше поточної дати'
+    )
+    .required('Поле обовʼязкове для заповнення'),
+});
+
+export const emailValidationSchema = object().shape({
+  email: string()
+    .email('Неправильний формат електронної пошти')
+    .required(
+      `Поле електронної пошти обов'язкове для заповнення`
+    ),
+});
+
+export const passwordValidationSchema = object().shape({
+  password: string()
+    .test(
+      'length',
+      'Пароль має містити мінімум 8 символів',
+      (value) => (value ? value.length >= 8 : true)
+    )
+    .required('Поле вводу паролю не може бути порожнім'),
+});
+
+const phoneRegExp = /^(?!(\+?7|8)\d{10}$)\+?\d{1,3}?\d{9}$/;
+export const phoneValidationSchema = object().shape({
+  phone: string()
+    .required(
+      'Поле номера телефону обовʼязкове для заповнення'
+    )
+    .matches(
+      phoneRegExp,
+      'Неправильний формат номера телефону (наприклад, +380501234567 або 0931234567)'
+    ),
+});

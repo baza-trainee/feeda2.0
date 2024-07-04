@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AddCandidatesSection from '../../components/UI/AddCandidatesSection/AddCandidatesSection';
 import { PageSection } from './AddPage.styled';
-import handleSubmit from '../../handlers/handleSubmit';
+import { handleSubmit } from '../../handlers/handlers';
 
 const AddPage = () => {
   const [formData, setFormData] = useState({
