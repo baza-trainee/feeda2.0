@@ -171,7 +171,12 @@ const Sidebar = () => {
                 fontWeight="600"
                 marginBottom="16px"
                 marginRight="0"
-                alignItems="center">
+                alignItems="center"
+                clickFunc={() =>
+                  console.log(
+                    'Має виходити на сторінку login та сбрасувати токени'
+                  )
+                }>
                 <TbLogout2
                   size={24}
                   style={{
