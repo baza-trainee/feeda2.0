@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import {
   Section,
@@ -10,10 +10,11 @@ import {
   ErrorMessage,
 } from './PasswordInput.styled';
 
-const PasswordInput = ({ title }) => {
+const PasswordInput = ({ title, value, onChange }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [password, setPassword] = useState('');
   const [errorText, setErrorText] = useState('');
+  const [empty, setEmpty] = useState(false);
+
   const inputType = isEditing ? 'text' : 'password';
   const handleEditToggle = () => {
     setIsEditing(!isEditing);
@@ -29,21 +30,29 @@ const PasswordInput = ({ title }) => {
       .required('Поле вводу паролю не може бути порожнім'),
   });
 
+  useEffect(() => {
+    const validateInput = async () => {
+      if (!empty) return;
+      let error = '';
+      try {
+        await validationSchema.validate(
+          { password: value },
+          { abortEarly: false }
+        );
+      } catch (validationError) {
+        error = validationError.errors.join(' ');
+      }
+
+      setErrorText(error);
+    };
+
+    validateInput();
+  }, [value, empty]);
+
+  // looks like i can make 1 handler on all of files
   const handleChange = async (event) => {
-    const newPassword = event.target.value;
-    setPassword(newPassword);
-    let error = '';
-
-    try {
-      await validationSchema.validate(
-        { password: newPassword },
-        { abortEarly: false }
-      );
-    } catch (validationError) {
-      error = validationError.errors.join(' ');
-    }
-
-    setErrorText(error);
+    if (!empty) setEmpty(true);
+    onChange(event.target.value);
   };
 
   return (
@@ -51,10 +60,9 @@ const PasswordInput = ({ title }) => {
       {!!title && <Title htmlFor={title}>{title}</Title>}
       <InputWrapper>
         <Input
-          id="passwordInput"
           type={inputType}
           placeholder="Пароль"
-          value={password}
+          value={value}
           onChange={handleChange}
         />
         <label htmlFor="passwordInput">

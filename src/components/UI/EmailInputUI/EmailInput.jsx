@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { object, string } from 'yup';
 import {
   Section,
@@ -9,9 +9,14 @@ import {
   ErrorMessage,
 } from './EmailInput.styled';
 
-const EmailInput = ({ title, placeholder }) => {
-  const [email, setEmail] = useState('');
+const EmailInput = ({
+  title,
+  placeholder,
+  value,
+  onChange,
+}) => {
   const [errorText, setErrorText] = useState('');
+  const [empty, setEmpty] = useState(false);
 
   // make separate validation schema file for all validations
   const validationSchema = object().shape({
@@ -22,21 +27,28 @@ const EmailInput = ({ title, placeholder }) => {
       ),
   });
 
-  const handleChange = async (event) => {
-    const newEmail = event.target.value;
-    setEmail(newEmail);
-    let error = '';
+  useEffect(() => {
+    const validateInput = async () => {
+      if (!empty) return;
+      let error = '';
+      try {
+        await validationSchema.validate(
+          { email: value },
+          { abortEarly: false }
+        );
+      } catch (validationError) {
+        error = validationError.errors.join(' ');
+      }
+      setErrorText(error);
+    };
 
-    try {
-      await validationSchema.validate(
-        { email: newEmail },
-        { abortEarly: false }
-      );
-    } catch (validationError) {
-      error = validationError.errors.join(' ');
-    }
+    validateInput();
+  }, [value, empty]);
 
-    setErrorText(error);
+  // looks like i can make 1 handler on all of files
+  const handleChange = (event) => {
+    if (!empty) setEmpty(true);
+    onChange(event.target.value);
   };
 
   return (
@@ -44,10 +56,9 @@ const EmailInput = ({ title, placeholder }) => {
       {!!title && <Title htmlFor={title}>{title}</Title>}
       <InputWrapper>
         <Input
-          id="emailInput"
           type="email"
           placeholder={placeholder}
-          value={email}
+          value={value}
           onChange={handleChange}
         />
         {!!errorText && (

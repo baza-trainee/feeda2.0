@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { object, string } from 'yup';
 import {
   Section,
@@ -8,9 +8,14 @@ import {
   ErrorMessage,
 } from './PhoneInput.styled';
 
-const PhoneInput = ({ title, placeholder }) => {
-  const [phone, setPhone] = useState('');
+const PhoneInput = ({
+  title,
+  placeholder,
+  value,
+  onChange,
+}) => {
   const [errorText, setErrorText] = useState('');
+  const [empty, setEmpty] = useState(false);
 
   const phoneRegExp =
     /^(?!(\+?7|8)\d{10}$)\+?\d{1,3}?\d{9}$/;
@@ -28,21 +33,28 @@ const PhoneInput = ({ title, placeholder }) => {
       ),
   });
 
-  const handleChange = async (event) => {
-    const inputValue = event.target.value;
-    setPhone(inputValue);
-    let error = '';
+  useEffect(() => {
+    const validateInput = async () => {
+      if (!empty) return;
+      let error = '';
+      try {
+        await validationSchema.validate(
+          { phone: value },
+          { abortEarly: false }
+        );
+      } catch (validationError) {
+        error = validationError.errors.join(' ');
+      }
+      setErrorText(error);
+    };
 
-    try {
-      await validationSchema.validate(
-        { phone: inputValue },
-        { abortEarly: false }
-      );
-    } catch (validationError) {
-      error = validationError.errors.join(' ');
-    }
+    validateInput();
+  }, [value, empty]);
 
-    setErrorText(error);
+  // looks like i can make 1 handler on all of files
+  const handleChange = (event) => {
+    if (!empty) setEmpty(true);
+    onChange(event.target.value);
   };
 
   return (
@@ -50,9 +62,9 @@ const PhoneInput = ({ title, placeholder }) => {
       {!!title && <Title htmlFor={title}>{title}</Title>}
       <InputWrapper>
         <Input
-          id="phoneInput"
           type="text"
           placeholder={placeholder}
+          value={value}
           onChange={handleChange}
         />
       </InputWrapper>
