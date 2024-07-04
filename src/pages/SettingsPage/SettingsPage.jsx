@@ -4,7 +4,7 @@ import SettingsForm from '../../components/UI/Settings/SettingsForm/SettingsForm
 import { SettingsSection } from './SettingsPage.styled';
 import SettingsPassword from '../../components/UI/Settings/SettingsPassword/SettingsPassword';
 import ButtonArea from '../../components/UI/Settings/ButtonArea/ButtonArea';
-import handleSubmit from '../../handlers/handleSubmit';
+import { handleSubmit } from '../../handlers/handlers';
 
 const SettingsPage = () => {
   const [formData, setFormData] = useState({

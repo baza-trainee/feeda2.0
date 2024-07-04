@@ -10,7 +10,7 @@ import PhoneInput from '../PhoneInput/PhoneInput';
 import PrimaryButton from '../Button/PrimaryButton/PrimaryButton';
 import DateInput from '../DateInput/DateInput';
 import SelectOptions from '../SelectOptions/SelectOptions';
-import handleChange from '../../../handlers/handleChange';
+import { handleChange } from '../../../handlers/handlers';
 
 const AddCandidatesSection = ({
   formData,

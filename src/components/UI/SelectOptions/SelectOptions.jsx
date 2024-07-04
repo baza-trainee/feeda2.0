@@ -5,7 +5,7 @@ import {
   Title,
   Select,
 } from './SelectOptions.styled';
-import handleOnChange from '../../../handlers/handleOnChange';
+import { handleOnChange } from '../../../handlers/handlers';
 
 const SelectOptions = ({
   title,

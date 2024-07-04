@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import * as Yup from 'yup';
+import { passwordValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
   InputWrapper,
@@ -9,7 +9,7 @@ import {
   Icon,
   ErrorMessage,
 } from './PasswordInput.styled';
-import handleOnChange from '../../../handlers/handleOnChange';
+import { handleOnChange } from '../../../handlers/handlers';
 
 const PasswordInput = ({ title, value, onChange }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -21,22 +21,12 @@ const PasswordInput = ({ title, value, onChange }) => {
     setIsEditing(!isEditing);
   };
 
-  const validationSchema = Yup.object().shape({
-    password: Yup.string()
-      .test(
-        'length',
-        'Пароль має містити мінімум 8 символів',
-        (value) => (value ? value.length >= 8 : true)
-      )
-      .required('Поле вводу паролю не може бути порожнім'),
-  });
-
   useEffect(() => {
     const validateInput = async () => {
       if (!empty) return;
       let error = '';
       try {
-        await validationSchema.validate(
+        await passwordValidationSchema.validate(
           { password: value },
           { abortEarly: false }
         );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import * as Yup from 'yup';
+import { dateValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
   InputWrapper,
@@ -7,7 +7,7 @@ import {
   Input,
   ErrorMessage,
 } from './DateInput.styled';
-import handleOnChange from '../../../handlers/handleOnChange';
+import { handleOnChange } from '../../../handlers/handlers';
 
 const DateInput = ({
   title,
@@ -18,30 +18,14 @@ const DateInput = ({
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
 
-  const validationSchema = Yup.object().shape({
-    interwiewDate: Yup.date().required(
-      'Поле обовʼязкове для заповнення'
-    ),
-    // make separate validation schema file for all validations
-    // need two different validation for interwiew date and request date
-    // .max(
-    //   new Date(),
-    //   'Дата не може бути пізніше поточної дати'
-    // )
-    // .min(
-    //   new Date(),
-    //   'Дата не може бути раніше поточної дати'
-    // ),
-  });
-
   useEffect(() => {
     const validateInput = async () => {
       if (!empty) return;
       let error = '';
 
       try {
-        await validationSchema.validate(
-          { interwiewDate: inputValue },
+        await dateValidationSchema.validate(
+          { date: value },
           { abortEarly: false }
         );
       } catch (validationError) {

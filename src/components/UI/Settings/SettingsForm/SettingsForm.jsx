@@ -3,7 +3,7 @@ import { SettingsFormSection } from './SettigsForm.styled';
 import TextInput from '../../TextInput/TextInput';
 import EmailInput from '../../EmailInputUI/EmailInput';
 import PhoneInput from '../../PhoneInput/PhoneInput';
-import handleChange from '../../../../handlers/handleChange';
+import { handleChange } from '../../../../handlers/handlers';
 
 const SettingsForm = ({ formData, setFormData }) => {
   const handleFieldChange = handleChange(

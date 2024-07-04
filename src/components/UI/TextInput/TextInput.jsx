@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { object, string } from 'yup';
+import { textValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
   InputWrapper,
@@ -8,7 +8,7 @@ import {
   Input,
   ErrorMessage,
 } from './TextInput.styled';
-import handleOnChange from '../../../handlers/handleOnChange';
+import { handleOnChange } from '../../../handlers/handlers';
 
 const TextInput = ({
   title,
@@ -19,20 +19,12 @@ const TextInput = ({
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
 
-  // make separate validation schema file for all validations
-
-  const validationSchema = object().shape({
-    name: string().required(
-      'Поле обовʼязкове для заповнення'
-    ),
-  });
-
   useEffect(() => {
     const validateInput = async () => {
       if (!empty) return;
       let error = '';
       try {
-        await validationSchema.validate(
+        await textValidationSchema.validate(
           { name: value },
           { abortEarly: false }
         );

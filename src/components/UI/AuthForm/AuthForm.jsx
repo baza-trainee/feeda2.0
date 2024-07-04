@@ -13,7 +13,7 @@ import {
 } from './AuthForm.styled';
 import { NavLink, useLocation } from 'react-router-dom';
 import { DescrStyled } from '../AuthTitle/AuthTitle.styled';
-import handleChange from '../../../handlers/handleChange';
+import { handleChange } from '../../../handlers/handlers';
 
 const AuthForm = ({ formData, setFormData, onSubmit }) => {
   const { pathname } = useLocation();

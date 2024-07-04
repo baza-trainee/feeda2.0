@@ -1,7 +1,7 @@
 import React from 'react';
 import { SettingsPasswordSection } from './SettingsPassword.styled';
 import PasswordInput from '../../PasswordInput/PasswordInput';
-import handleChange from '../../../../handlers/handleChange';
+import { handleChange } from '../../../../handlers/handlers';
 
 const SettingsPassword = ({ formData, setFormData }) => {
   const handleFieldChange = handleChange(

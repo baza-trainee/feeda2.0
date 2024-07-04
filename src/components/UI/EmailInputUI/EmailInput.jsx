@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { object, string } from 'yup';
+import { emailValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
   InputWrapper,
@@ -8,7 +8,7 @@ import {
   Title,
   ErrorMessage,
 } from './EmailInput.styled';
-import handleOnChange from '../../../handlers/handleOnChange';
+import { handleOnChange } from '../../../handlers/handlers';
 
 const EmailInput = ({
   title,
@@ -19,21 +19,12 @@ const EmailInput = ({
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
 
-  // make separate validation schema file for all validations
-  const validationSchema = object().shape({
-    email: string()
-      .email('Неправильний формат електронної пошти')
-      .required(
-        `Поле електронної пошти обов'язкове для заповнення`
-      ),
-  });
-
   useEffect(() => {
     const validateInput = async () => {
       if (!empty) return;
       let error = '';
       try {
-        await validationSchema.validate(
+        await emailValidationSchema.validate(
           { email: value },
           { abortEarly: false }
         );
