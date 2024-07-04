@@ -8,6 +8,7 @@ import {
   Input,
   ErrorMessage,
 } from './TextInput.styled';
+import handleOnChange from '../../../handlers/handleOnChange';
 
 const TextInput = ({
   title,
@@ -44,11 +45,10 @@ const TextInput = ({
     validateInput();
   }, [value, empty]);
 
-  // looks like i can make 1 handler on all of files
-  const handleChange = (event) => {
-    if (!empty) setEmpty(true);
-    onChange(event.target.value);
-  };
+  const handleFieldChange = handleOnChange(
+    setEmpty,
+    onChange
+  );
 
   return (
     <Section>
@@ -58,7 +58,7 @@ const TextInput = ({
           type="text"
           placeholder={placeholder}
           value={value}
-          onChange={handleChange}
+          onChange={handleFieldChange}
         />
         {!!errorText && (
           <ErrorMessage htmlFor="textInput">

@@ -9,6 +9,7 @@ import {
   Icon,
   ErrorMessage,
 } from './PasswordInput.styled';
+import handleOnChange from '../../../handlers/handleOnChange';
 
 const PasswordInput = ({ title, value, onChange }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -49,11 +50,10 @@ const PasswordInput = ({ title, value, onChange }) => {
     validateInput();
   }, [value, empty]);
 
-  // looks like i can make 1 handler on all of files
-  const handleChange = async (event) => {
-    if (!empty) setEmpty(true);
-    onChange(event.target.value);
-  };
+  const handleFieldChange = handleOnChange(
+    setEmpty,
+    onChange
+  );
 
   return (
     <Section>
@@ -63,7 +63,7 @@ const PasswordInput = ({ title, value, onChange }) => {
           type={inputType}
           placeholder="Пароль"
           value={value}
-          onChange={handleChange}
+          onChange={handleFieldChange}
         />
         <label htmlFor="passwordInput">
           <Icon

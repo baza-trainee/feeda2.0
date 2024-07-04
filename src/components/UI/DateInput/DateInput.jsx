@@ -7,6 +7,7 @@ import {
   Input,
   ErrorMessage,
 } from './DateInput.styled';
+import handleOnChange from '../../../handlers/handleOnChange';
 
 const DateInput = ({
   title,
@@ -14,7 +15,6 @@ const DateInput = ({
   value,
   onChange,
 }) => {
-  const [date, setDate] = useState('');
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
 
@@ -53,11 +53,10 @@ const DateInput = ({
     validateInput();
   }, [value, empty]);
 
-  // looks like i can make 1 handler on all of files
-  const handleChange = (event) => {
-    if (!empty) setEmpty(true);
-    onChange(event.target.value);
-  };
+  const handleFieldChange = handleOnChange(
+    setEmpty,
+    onChange
+  );
 
   return (
     <Section>
@@ -67,7 +66,7 @@ const DateInput = ({
           type="date"
           placeholder={placeholder}
           value={value}
-          onChange={handleChange}
+          onChange={handleFieldChange}
         />
       </InputWrapper>
       {!!errorText && (

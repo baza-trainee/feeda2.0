@@ -5,17 +5,19 @@ import {
   Title,
   Select,
 } from './SelectOptions.styled';
+import handleOnChange from '../../../handlers/handleOnChange';
 
 const SelectOptions = ({
   title,
   placeholder,
   value,
+  setEmpty,
   onChange,
 }) => {
-  // looks like i can make 1 handler on all of files
-  const handleChange = (event) => {
-    onChange(event.target.value);
-  };
+  const handleFieldChange = handleOnChange(
+    setEmpty,
+    onChange
+  );
 
   return (
     <Section>
@@ -25,7 +27,7 @@ const SelectOptions = ({
           title={title}
           placeholder={placeholder}
           value={value}
-          onChange={handleChange}>
+          onChange={handleFieldChange}>
           <option value="passed">Пройшов</option>
           <option value="failed">Не пройшов</option>
         </Select>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AuthForm from '../../components/UI/AuthForm/AuthForm';
-import Layout from '../../components/Layout/Layout';
+import handleSubmit from '../../handlers/handleSubmit';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -8,16 +8,13 @@ const LoginPage = () => {
     password: '',
   });
 
-  //make 1 handle for all elements
-  const handleSubmit = () => {
-    console.log('Form data:', formData);
-  };
+  const handleFormSubmit = () => handleSubmit(formData);
 
   return (
     <AuthForm
       formData={formData}
       setFormData={setFormData}
-      onSubmit={handleSubmit}
+      onSubmit={handleFormSubmit}
     />
   );
 };
