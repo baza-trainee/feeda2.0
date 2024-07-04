@@ -3,14 +3,12 @@ import { ButtonAreaSection } from './ButtonArea.styled';
 import SecondaryButton from '../../Button/SecondaryButton/SecondaryButton';
 import PrimaryButton from '../../Button/PrimaryButton/PrimaryButton';
 
-const ButtonArea = () => {
+const ButtonArea = ({ onSubmit, onReset }) => {
   return (
     <ButtonAreaSection>
       <SecondaryButton
         disabled={false}
-        clickFunc={() =>
-          console.log('Має скидувати всі інпути')
-        }
+        clickFunc={onReset}
         width="113px"
         height="56px"
         borderRadius="4px">
@@ -18,9 +16,7 @@ const ButtonArea = () => {
       </SecondaryButton>
       <PrimaryButton
         disabled={false}
-        clickFunc={() =>
-          console.log('Має ідправляти форму')
-        }
+        clickFunc={onSubmit}
         width="331px">
         <span>Зберігти зміни</span>
       </PrimaryButton>

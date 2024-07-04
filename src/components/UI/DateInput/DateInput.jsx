@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as Yup from 'yup';
 import {
   Section,
@@ -8,9 +8,15 @@ import {
   ErrorMessage,
 } from './DateInput.styled';
 
-const DateInput = ({ title, placeholder }) => {
+const DateInput = ({
+  title,
+  placeholder,
+  value,
+  onChange,
+}) => {
   const [date, setDate] = useState('');
   const [errorText, setErrorText] = useState('');
+  const [empty, setEmpty] = useState(false);
 
   const validationSchema = Yup.object().shape({
     interwiewDate: Yup.date().required(
@@ -28,21 +34,29 @@ const DateInput = ({ title, placeholder }) => {
     // ),
   });
 
-  const handleChange = async (event) => {
-    const inputValue = event.target.value;
-    setDate(inputValue);
-    let error = '';
+  useEffect(() => {
+    const validateInput = async () => {
+      if (!empty) return;
+      let error = '';
 
-    try {
-      await validationSchema.validate(
-        { interwiewDate: inputValue },
-        { abortEarly: false }
-      );
-    } catch (validationError) {
-      error = validationError.errors.join(' ');
-    }
+      try {
+        await validationSchema.validate(
+          { interwiewDate: inputValue },
+          { abortEarly: false }
+        );
+      } catch (validationError) {
+        error = validationError.errors.join(' ');
+      }
 
-    setErrorText(error);
+      setErrorText(error);
+    };
+    validateInput();
+  }, [value, empty]);
+
+  // looks like i can make 1 handler on all of files
+  const handleChange = (event) => {
+    if (!empty) setEmpty(true);
+    onChange(event.target.value);
   };
 
   return (
@@ -52,6 +66,7 @@ const DateInput = ({ title, placeholder }) => {
         <Input
           type="date"
           placeholder={placeholder}
+          value={value}
           onChange={handleChange}
         />
       </InputWrapper>

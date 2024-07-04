@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import TextInput from '../TextInput/TextInput';
 import PasswordInput from '../PasswordInput/PasswordInput';
@@ -14,13 +14,14 @@ import {
 import { NavLink, useLocation } from 'react-router-dom';
 import { DescrStyled } from '../AuthTitle/AuthTitle.styled';
 
-const AuthForm = () => {
+const AuthForm = ({ formData, setFormData, onSubmit }) => {
   const { pathname } = useLocation();
 
-  const submitForm = () => {
-    console.log('Submit form');
-    console.log(pathname);
+  //make 1 handle for all elements
+  const handleChange = (field) => (value) => {
+    setFormData({ ...formData, [field]: value });
   };
+
   return (
     <>
       <AuthContainer>
@@ -48,17 +49,32 @@ const AuthForm = () => {
               <TextInput
                 title={'Логін'}
                 placeholder="Логін"
+                value={formData.login}
+                onChange={handleChange('login')}
               />
             )}
             {(pathname === '/register' ||
               pathname === '/forgot-pass') && (
-              <EmailInput title={'E-mail'} />
+              <EmailInput
+                title={'E-mail'}
+                placeholder="E-mail"
+                value={formData.email}
+                onChange={handleChange('email')}
+              />
             )}
             {pathname !== '/forgot-pass' && (
-              <PasswordInput title={'Пароль'} />
+              <PasswordInput
+                title={'Пароль'}
+                value={formData.password}
+                onChange={handleChange('password')}
+              />
             )}
             {pathname === '/register' && (
-              <PasswordInput title={'Повторіть пароль'} />
+              <PasswordInput
+                title={'Повторіть пароль'}
+                value={formData.repeatedPassword}
+                onChange={handleChange('repeatedPassword')}
+              />
             )}
             {pathname !== '/forgot-pass' && (
               <CheckboxUI path={pathname} />
@@ -66,7 +82,7 @@ const AuthForm = () => {
             {pathname === '/register' && (
               <PrimaryButton
                 disabled={false}
-                clickFunc={submitForm}>
+                clickFunc={onSubmit}>
                 <span>Зареєструватись</span>
               </PrimaryButton>
             )}
@@ -74,7 +90,7 @@ const AuthForm = () => {
               <PrimaryButton
                 text={'Вхід'}
                 disabled={false}
-                clickFunc={submitForm}>
+                clickFunc={onSubmit}>
                 <span>Вхід</span>
               </PrimaryButton>
             )}
@@ -82,7 +98,7 @@ const AuthForm = () => {
               <PrimaryButton
                 text={'Надіслати'}
                 disabled={false}
-                clickFunc={submitForm}>
+                clickFunc={onSubmit}>
                 <span>Надіслати</span>
               </PrimaryButton>
             )}

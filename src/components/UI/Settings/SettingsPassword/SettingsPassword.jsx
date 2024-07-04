@@ -2,13 +2,22 @@ import React from 'react';
 import { SettingsPasswordSection } from './SettingsPassword.styled';
 import PasswordInput from '../../PasswordInput/PasswordInput';
 
-const SettingsPassword = () => {
+const SettingsPassword = ({ formData, setFormData }) => {
+  const handleChange = (field) => (value) => {
+    setFormData({ ...formData, [field]: value });
+  };
   return (
     <SettingsPasswordSection>
-      {/*Так само як і в Settings form input трохи менший ніж сама форма */}
-      {/* Змінити placeholderи */}
-      <PasswordInput title="Пароль" />
-      <PasswordInput title="Повторити пароль" />
+      <PasswordInput
+        title="Пароль"
+        value={formData.password}
+        onChange={handleChange('password')}
+      />
+      <PasswordInput
+        title="Повторити пароль"
+        value={formData.repeatedPassword}
+        onChange={handleChange('repeatedPassword')}
+      />
     </SettingsPasswordSection>
   );
 };

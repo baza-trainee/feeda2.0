@@ -6,7 +6,17 @@ import {
   Select,
 } from './SelectOptions.styled';
 
-const SelectOptions = ({ title, placeholder }) => {
+const SelectOptions = ({
+  title,
+  placeholder,
+  value,
+  onChange,
+}) => {
+  // looks like i can make 1 handler on all of files
+  const handleChange = (event) => {
+    onChange(event.target.value);
+  };
+
   return (
     <Section>
       <SectionWrapper>
@@ -14,7 +24,8 @@ const SelectOptions = ({ title, placeholder }) => {
         <Select
           title={title}
           placeholder={placeholder}
-          required>
+          value={value}
+          onChange={handleChange}>
           <option value="passed">Пройшов</option>
           <option value="failed">Не пройшов</option>
         </Select>
