@@ -4,6 +4,7 @@ import SettingsForm from '../../components/UI/Settings/SettingsForm/SettingsForm
 import { SettingsSection } from './SettingsPage.styled';
 import SettingsPassword from '../../components/UI/Settings/SettingsPassword/SettingsPassword';
 import ButtonArea from '../../components/UI/Settings/ButtonArea/ButtonArea';
+import handleSubmit from '../../handlers/handleSubmit';
 
 const SettingsPage = () => {
   const [formData, setFormData] = useState({
@@ -15,9 +16,7 @@ const SettingsPage = () => {
     repeatedPassword: '',
   });
 
-  const handleSubmit = () => {
-    console.log('Form data:', formData);
-  };
+  const handleFormSubmit = () => handleSubmit(formData);
 
   const handleReset = () => {
     setFormData({
@@ -42,7 +41,7 @@ const SettingsPage = () => {
         setFormData={setFormData}
       />
       <ButtonArea
-        onSubmit={handleSubmit}
+        onSubmit={handleFormSubmit}
         onReset={handleReset}
       />
     </SettingsSection>

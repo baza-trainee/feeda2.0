@@ -7,6 +7,7 @@ import {
   Input,
   ErrorMessage,
 } from './PhoneInput.styled';
+import handleOnChange from '../../../handlers/handleOnChange';
 
 const PhoneInput = ({
   title,
@@ -51,11 +52,10 @@ const PhoneInput = ({
     validateInput();
   }, [value, empty]);
 
-  // looks like i can make 1 handler on all of files
-  const handleChange = (event) => {
-    if (!empty) setEmpty(true);
-    onChange(event.target.value);
-  };
+  const handleFieldChange = handleOnChange(
+    setEmpty,
+    onChange
+  );
 
   return (
     <Section>
@@ -65,7 +65,7 @@ const PhoneInput = ({
           type="text"
           placeholder={placeholder}
           value={value}
-          onChange={handleChange}
+          onChange={handleFieldChange}
         />
       </InputWrapper>
       {!!errorText && (

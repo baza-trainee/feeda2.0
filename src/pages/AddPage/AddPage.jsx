@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddCandidatesSection from '../../components/UI/AddCandidatesSection/AddCandidatesSection';
 import { PageSection } from './AddPage.styled';
+import handleSubmit from '../../handlers/handleSubmit';
 
 const AddPage = () => {
   const [formData, setFormData] = useState({
@@ -16,17 +17,14 @@ const AddPage = () => {
     listDate: '',
   });
 
-  //make 1 handle for all elements
-  const handleSubmit = () => {
-    console.log('Form data:', formData);
-  };
+  const handleFormSubmit = () => handleSubmit(formData);
 
   return (
     <PageSection>
       <AddCandidatesSection
         formData={formData}
         setFormData={setFormData}
-        onSubmit={handleSubmit}></AddCandidatesSection>
+        onSubmit={handleFormSubmit}></AddCandidatesSection>
     </PageSection>
   );
 };

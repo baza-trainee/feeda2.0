@@ -13,14 +13,14 @@ import {
 } from './AuthForm.styled';
 import { NavLink, useLocation } from 'react-router-dom';
 import { DescrStyled } from '../AuthTitle/AuthTitle.styled';
+import handleChange from '../../../handlers/handleChange';
 
 const AuthForm = ({ formData, setFormData, onSubmit }) => {
   const { pathname } = useLocation();
-
-  //make 1 handle for all elements
-  const handleChange = (field) => (value) => {
-    setFormData({ ...formData, [field]: value });
-  };
+  const handleFieldChange = handleChange(
+    setFormData,
+    formData
+  );
 
   return (
     <>
@@ -50,7 +50,7 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
                 title={'Логін'}
                 placeholder="Логін"
                 value={formData.login}
-                onChange={handleChange('login')}
+                onChange={handleFieldChange('login')}
               />
             )}
             {(pathname === '/register' ||
@@ -59,21 +59,23 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
                 title={'E-mail'}
                 placeholder="E-mail"
                 value={formData.email}
-                onChange={handleChange('email')}
+                onChange={handleFieldChange('email')}
               />
             )}
             {pathname !== '/forgot-pass' && (
               <PasswordInput
                 title={'Пароль'}
                 value={formData.password}
-                onChange={handleChange('password')}
+                onChange={handleFieldChange('password')}
               />
             )}
             {pathname === '/register' && (
               <PasswordInput
                 title={'Повторіть пароль'}
                 value={formData.repeatedPassword}
-                onChange={handleChange('repeatedPassword')}
+                onChange={handleFieldChange(
+                  'repeatedPassword'
+                )}
               />
             )}
             {pathname !== '/forgot-pass' && (

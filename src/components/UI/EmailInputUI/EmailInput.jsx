@@ -8,6 +8,7 @@ import {
   Title,
   ErrorMessage,
 } from './EmailInput.styled';
+import handleOnChange from '../../../handlers/handleOnChange';
 
 const EmailInput = ({
   title,
@@ -45,11 +46,10 @@ const EmailInput = ({
     validateInput();
   }, [value, empty]);
 
-  // looks like i can make 1 handler on all of files
-  const handleChange = (event) => {
-    if (!empty) setEmpty(true);
-    onChange(event.target.value);
-  };
+  const handleFieldChange = handleOnChange(
+    setEmpty,
+    onChange
+  );
 
   return (
     <Section>
@@ -59,7 +59,7 @@ const EmailInput = ({
           type="email"
           placeholder={placeholder}
           value={value}
-          onChange={handleChange}
+          onChange={handleFieldChange}
         />
         {!!errorText && (
           <ErrorMessage htmlFor="emailInput">

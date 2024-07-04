@@ -3,36 +3,38 @@ import { SettingsFormSection } from './SettigsForm.styled';
 import TextInput from '../../TextInput/TextInput';
 import EmailInput from '../../EmailInputUI/EmailInput';
 import PhoneInput from '../../PhoneInput/PhoneInput';
+import handleChange from '../../../../handlers/handleChange';
 
 const SettingsForm = ({ formData, setFormData }) => {
-  const handleChange = (field) => (value) => {
-    setFormData({ ...formData, [field]: value });
-  };
+  const handleFieldChange = handleChange(
+    setFormData,
+    formData
+  );
   return (
     <SettingsFormSection>
       <TextInput
         title="Імʼя"
         placeholder="Імʼя"
         value={formData.firstName}
-        onChange={handleChange('firstName')}
+        onChange={handleFieldChange('firstName')}
       />
       <EmailInput
         title="Електронна пошта"
         placeholder="Електронна пошта"
         value={formData.email}
-        onChange={handleChange('email')}
+        onChange={handleFieldChange('email')}
       />
       <TextInput
         title="Прізвище"
         placeholder="Прізвище"
         value={formData.secondName}
-        onChange={handleChange('secondName')}
+        onChange={handleFieldChange('secondName')}
       />
       <PhoneInput
         title="Телефон"
         placeholder="+380*********"
         value={formData.phone}
-        onChange={handleChange('phone')}
+        onChange={handleFieldChange('phone')}
       />
     </SettingsFormSection>
   );

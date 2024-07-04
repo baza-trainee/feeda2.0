@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AuthForm from '../../components/UI/AuthForm/AuthForm';
+import handleSubmit from '../../handlers/handleSubmit';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -9,15 +10,13 @@ const RegisterPage = () => {
     repeatedPassword: '',
   });
 
-  //make 1 handle for all elements
-  const handleSubmit = () => {
-    console.log('Form data:', formData);
-  };
+  const handleFormSubmit = () => handleSubmit(formData);
+
   return (
     <AuthForm
       formData={formData}
       setFormData={setFormData}
-      onSubmit={handleSubmit}
+      onSubmit={handleFormSubmit}
     />
   );
 };

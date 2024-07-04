@@ -1,22 +1,24 @@
 import React from 'react';
 import { SettingsPasswordSection } from './SettingsPassword.styled';
 import PasswordInput from '../../PasswordInput/PasswordInput';
+import handleChange from '../../../../handlers/handleChange';
 
 const SettingsPassword = ({ formData, setFormData }) => {
-  const handleChange = (field) => (value) => {
-    setFormData({ ...formData, [field]: value });
-  };
+  const handleFieldChange = handleChange(
+    setFormData,
+    formData
+  );
   return (
     <SettingsPasswordSection>
       <PasswordInput
         title="Пароль"
         value={formData.password}
-        onChange={handleChange('password')}
+        onChange={handleFieldChange('password')}
       />
       <PasswordInput
         title="Повторити пароль"
         value={formData.repeatedPassword}
-        onChange={handleChange('repeatedPassword')}
+        onChange={handleFieldChange('repeatedPassword')}
       />
     </SettingsPasswordSection>
   );
