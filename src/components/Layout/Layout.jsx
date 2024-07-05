@@ -11,9 +11,7 @@ const Layout = () => {
         <Header />
         <PageSection>
           <Sidebar />
-          <Suspense fallback={<div>Loading...</div>}>
-            <Outlet />
-          </Suspense>
+          <Outlet />
         </PageSection>
       </div>
     </>
