@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SidebarSection = styled.div`
+export const SidebarSection = styled.section`
   margin: 32px 24px 32px 32px;
   width: 286px;
   display: flex;
@@ -8,7 +8,7 @@ export const SidebarSection = styled.div`
   justify-content: space-between;
 `;
 
-export const DropdownMenu = styled.div`
+export const DropdownMenu = styled.section`
   display: flex;
   flex-direction: column;
   width: 246px;

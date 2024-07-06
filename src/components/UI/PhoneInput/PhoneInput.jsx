@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { phoneValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
-  InputWrapper,
   Title,
   Input,
   ErrorMessage,
@@ -44,14 +43,12 @@ const PhoneInput = ({
   return (
     <Section>
       {!!title && <Title htmlFor={title}>{title}</Title>}
-      <InputWrapper>
-        <Input
-          type="text"
-          placeholder={placeholder}
-          value={value}
-          onChange={handleFieldChange}
-        />
-      </InputWrapper>
+      <Input
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={handleFieldChange}
+      />
       {!!errorText && (
         <ErrorMessage htmlFor={errorText}>
           {errorText}

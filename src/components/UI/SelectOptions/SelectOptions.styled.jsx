@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
-export const Section = styled.div`
+export const Section = styled.section`
   width: 389px;
-  height: 79px;
-`;
-
-export const SectionWrapper = styled.div`
-  position: relative;
+  height: auto;
 `;
 
 export const Title = styled.label`

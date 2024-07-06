@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { emailValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
-  InputWrapper,
   Input,
   Title,
   ErrorMessage,
@@ -45,19 +44,17 @@ const EmailInput = ({
   return (
     <Section>
       {!!title && <Title htmlFor={title}>{title}</Title>}
-      <InputWrapper>
-        <Input
-          type="email"
-          placeholder={placeholder}
-          value={value}
-          onChange={handleFieldChange}
-        />
-        {!!errorText && (
-          <ErrorMessage htmlFor="emailInput">
-            {errorText}
-          </ErrorMessage>
-        )}
-      </InputWrapper>
+      <Input
+        type="email"
+        placeholder={placeholder}
+        value={value}
+        onChange={handleFieldChange}
+      />
+      {!!errorText && (
+        <ErrorMessage htmlFor="emailInput">
+          {errorText}
+        </ErrorMessage>
+      )}
     </Section>
   );
 };

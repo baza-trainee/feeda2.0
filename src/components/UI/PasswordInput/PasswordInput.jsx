@@ -58,6 +58,7 @@ const PasswordInput = ({ title, value, onChange }) => {
         <label htmlFor="passwordInput">
           <Icon
             src="./notEyeIcon.svg"
+            alt="image of hidden password"
             onClick={() => handleEditToggle()}
           />
         </label>

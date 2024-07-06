@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Section = styled.div`
+export const Section = styled.section`
   width: 389px;
   height: auto;
 `;
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.section`
   position: relative;
 `;
 

@@ -7,13 +7,11 @@ import { PageSection } from '../../pages/AddPage/AddPage.styled';
 const Layout = () => {
   return (
     <>
-      <div>
-        <Header />
-        <PageSection>
-          <Sidebar />
-          <Outlet />
-        </PageSection>
-      </div>
+      <Header />
+      <PageSection>
+        <Sidebar />
+        <Outlet />
+      </PageSection>
     </>
   );
 };

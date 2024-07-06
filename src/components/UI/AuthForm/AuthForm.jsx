@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import TextInput from '../TextInput/TextInput';
 import PasswordInput from '../PasswordInput/PasswordInput';

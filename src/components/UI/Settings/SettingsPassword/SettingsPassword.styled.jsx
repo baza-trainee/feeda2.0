@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SettingsPasswordSection = styled.div`
+export const SettingsPasswordSection = styled.section`
   padding: 32px 52px 32px 52px;
   margin-top: 16px;
   width: 100%;

@@ -46,7 +46,9 @@ const Header = () => {
             {getPageTitle(location.pathname)}
           </PageTitle>
           <UserInfo>
-            <UserPhoto src="/userPhoto.svg"></UserPhoto>
+            <UserPhoto
+              src="/userPhoto.svg"
+              alt="user photo"></UserPhoto>
             <UserName>User.name</UserName>
           </UserInfo>
         </MainHeader>

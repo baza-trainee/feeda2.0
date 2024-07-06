@@ -40,7 +40,7 @@ const Sidebar = () => {
       {shouldRenderSidebar(location.pathname) && (
         <>
           <SidebarSection>
-            <div>
+            <section>
               <PrimaryButton
                 clickFunc={handleDropdownClick}
                 text="Кандидати"
@@ -157,8 +157,8 @@ const Sidebar = () => {
                 />
                 <span>Налаштування</span>
               </PrimaryButton>
-            </div>
-            <div>
+            </section>
+            <section>
               <SecondaryButton
                 disabled={false}
                 width="286px"
@@ -183,9 +183,9 @@ const Sidebar = () => {
                     marginRight: '15px',
                   }}
                 />
-                <span>Вийти</span>
+                <p>Вийти</p>
               </SecondaryButton>
-            </div>
+            </section>
           </SidebarSection>
         </>
       )}
