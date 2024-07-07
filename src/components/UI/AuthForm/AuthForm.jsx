@@ -43,7 +43,7 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
             </>
           )}
 
-          <FormStyled>
+          <FormStyled autocomplete="on">
             {(pathname === '/register' ||
               pathname === '/login') && (
               <TextInput
@@ -51,6 +51,7 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
                 placeholder="Логін"
                 value={formData.login}
                 onChange={handleFieldChange('login')}
+                autoComplete="username"
               />
             )}
             {(pathname === '/register' ||
@@ -60,6 +61,7 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
                 placeholder="E-mail"
                 value={formData.email}
                 onChange={handleFieldChange('email')}
+                autoComplete="email"
               />
             )}
             {pathname !== '/forgot-pass' && (
@@ -67,6 +69,7 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
                 title={'Пароль'}
                 value={formData.password}
                 onChange={handleFieldChange('password')}
+                autoComplete="current-password"
               />
             )}
             {pathname === '/register' && (
@@ -76,6 +79,7 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
                 onChange={handleFieldChange(
                   'repeatedPassword'
                 )}
+                autoComplete="new-password"
               />
             )}
             {pathname !== '/forgot-pass' && (

@@ -14,6 +14,7 @@ const TextInput = ({
   placeholder,
   value,
   onChange,
+  autoComplete,
 }) => {
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
@@ -49,6 +50,7 @@ const TextInput = ({
         placeholder={placeholder}
         value={value}
         onChange={handleFieldChange}
+        autoComplete={autoComplete}
       />
       {!!errorText && (
         <ErrorMessage htmlFor="textInput">

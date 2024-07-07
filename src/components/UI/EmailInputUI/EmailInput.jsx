@@ -11,6 +11,7 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const EmailInput = ({
   title,
+  autoComplete,
   placeholder,
   value,
   onChange,
@@ -48,6 +49,7 @@ const EmailInput = ({
         type="email"
         placeholder={placeholder}
         value={value}
+        autoComplete={autoComplete}
         onChange={handleFieldChange}
       />
       {!!errorText && (

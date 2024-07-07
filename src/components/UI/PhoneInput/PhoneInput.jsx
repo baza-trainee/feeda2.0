@@ -13,6 +13,7 @@ const PhoneInput = ({
   placeholder,
   value,
   onChange,
+  autoComplete,
 }) => {
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
@@ -48,6 +49,7 @@ const PhoneInput = ({
         placeholder={placeholder}
         value={value}
         onChange={handleFieldChange}
+        autoComplete={autoComplete}
       />
       {!!errorText && (
         <ErrorMessage htmlFor={errorText}>
