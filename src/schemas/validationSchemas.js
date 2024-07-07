@@ -1,9 +1,13 @@
 import { object, string, date } from 'yup';
 
 export const textValidationSchema = object().shape({
-  name: string().required(
-    'Поле обовʼязкове для заповнення'
-  ),
+  name: string()
+    .required('Поле обовʼязкове для заповнення')
+    .test(
+      'length',
+      'Поле має містити максимум 30 символів',
+      (value) => (value ? value.length < 31 : true)
+    ),
 });
 
 export const dateValidationSchema = object().shape({
@@ -29,6 +33,11 @@ export const passwordValidationSchema = object().shape({
       'length',
       'Пароль має містити мінімум 8 символів',
       (value) => (value ? value.length >= 8 : true)
+    )
+    .test(
+      'length',
+      'Пароль має містити максимум 30 символів',
+      (value) => (value ? value.length < 31 : true)
     )
     .required('Поле вводу паролю не може бути порожнім'),
 });
