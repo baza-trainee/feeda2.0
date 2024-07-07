@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AddCandidatesFormSection = styled.section`
+export const AddCandidatesFormSection = styled.main`
   margin-bottom: 32px;
   width: 100%;
   padding: 32px 52px 32px 52px;

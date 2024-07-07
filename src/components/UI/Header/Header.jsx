@@ -48,7 +48,7 @@ const Header = () => {
           <UserInfo>
             <UserPhoto
               src="/userPhoto.svg"
-              alt="user photo"></UserPhoto>
+              alt="userPhoto"></UserPhoto>
             <UserName>User.name</UserName>
           </UserInfo>
         </MainHeader>

@@ -14,7 +14,7 @@ const SettingsHeader = () => {
       <Figure>
         <SettingsPhoto
           src="/SettingsUserPhoto.svg"
-          alt="user photo"></SettingsPhoto>
+          alt="userPhoto"></SettingsPhoto>
         <FigcaptionSection>
           <SettingsName>Олена Лисенко</SettingsName>
           <ChangePhotoLink

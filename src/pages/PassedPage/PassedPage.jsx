@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PassedPage = () => {
-  return <div>Passed Page</div>;
+  return <main>Passed Page</main>;
 };
 
 export default PassedPage;

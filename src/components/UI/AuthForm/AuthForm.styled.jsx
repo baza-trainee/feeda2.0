@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AuthContainer = styled.section`
+export const AuthContainer = styled.main`
   display: flex;
   width: 100%;
   align-items: center;
@@ -9,7 +9,7 @@ export const AuthContainer = styled.section`
   margin-top: 125px;
 `;
 
-export const FormContainer = styled.section`
+export const FormContainer = styled.fieldset`
   display: flex;
   align-items: center;
   flex-direction: column;
