@@ -13,6 +13,8 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const PasswordInput = ({
   title,
+  id,
+  name,
   value,
   onChange,
   autoComplete,
@@ -52,10 +54,12 @@ const PasswordInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{title}</Title>}
       <InputWrapper>
         <Input
           type={inputType}
+          id={id}
+          name={name}
           placeholder="Пароль"
           value={value}
           onChange={handleFieldChange}

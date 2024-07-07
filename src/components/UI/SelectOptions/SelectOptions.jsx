@@ -8,6 +8,8 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const SelectOptions = ({
   title,
+  id,
+  name,
   placeholder,
   value,
   setEmpty,
@@ -20,9 +22,11 @@ const SelectOptions = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{title}</Title>}
       <Select
         title={title}
+        name={name}
+        id={id}
         placeholder={placeholder}
         value={value}
         onChange={handleFieldChange}>

@@ -15,6 +15,9 @@ const PrimaryButton = (props) => {
   return (
     <Button
       type="button"
+      title="generalButton"
+      name="generalButton"
+      id="generalButton"
       onClick={() => clickFunc()}
       disabled={disabled}
       style={{

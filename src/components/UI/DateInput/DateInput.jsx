@@ -10,6 +10,8 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const DateInput = ({
   title,
+  id,
+  name,
   placeholder,
   value,
   onChange,
@@ -43,9 +45,12 @@ const DateInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{title}</Title>}
       <Input
         type="date"
+        id={id}
+        name={name}
+        title={title}
         placeholder={placeholder}
         value={value}
         onChange={handleFieldChange}

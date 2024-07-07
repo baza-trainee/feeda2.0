@@ -14,6 +14,8 @@ const SettingsForm = ({ formData, setFormData }) => {
     <SettingsFormSection autoComplete="on">
       <TextInput
         title="Імʼя"
+        id="name"
+        name="name"
         placeholder="Імʼя"
         value={formData.firstName}
         onChange={handleFieldChange('firstName')}
@@ -21,6 +23,8 @@ const SettingsForm = ({ formData, setFormData }) => {
       />
       <EmailInput
         title="Електронна пошта"
+        id="Email"
+        name="email"
         placeholder="Електронна пошта"
         value={formData.email}
         onChange={handleFieldChange('email')}
@@ -28,6 +32,8 @@ const SettingsForm = ({ formData, setFormData }) => {
       />
       <TextInput
         title="Прізвище"
+        id="surname"
+        name="surname"
         placeholder="Прізвище"
         value={formData.secondName}
         onChange={handleFieldChange('secondName')}
@@ -35,6 +41,8 @@ const SettingsForm = ({ formData, setFormData }) => {
       />
       <PhoneInput
         title="Телефон"
+        id="PhoneInput"
+        name="PhoneInput"
         placeholder="+380*********"
         value={formData.phone}
         onChange={handleFieldChange('phone')}

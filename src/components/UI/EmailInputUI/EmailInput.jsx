@@ -15,6 +15,8 @@ const EmailInput = ({
   placeholder,
   value,
   onChange,
+  id,
+  name,
 }) => {
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
@@ -44,9 +46,12 @@ const EmailInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{title}</Title>}
       <Input
         type="email"
+        id={id}
+        name={name}
+        title={title}
         placeholder={placeholder}
         value={value}
         autoComplete={autoComplete}

@@ -10,6 +10,8 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const PhoneInput = ({
   title,
+  name,
+  id,
   placeholder,
   value,
   onChange,
@@ -43,9 +45,11 @@ const PhoneInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{title}</Title>}
       <Input
         type="text"
+        id={id}
+        name={name}
         placeholder={placeholder}
         value={value}
         onChange={handleFieldChange}

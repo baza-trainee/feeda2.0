@@ -7,11 +7,16 @@ import {
   LinkWrapper,
 } from './CheckboxUI.styled';
 
-const CheckboxUI = ({ path }) => {
+const CheckboxUI = ({ path, id, name, title }) => {
   return (
     <Section>
-      <Input id="checkbox" type="checkbox" />
-      <Text htmlFor="checkbox">Запамʼятати пароль</Text>
+      <Input
+        id={id}
+        type="checkbox"
+        name={name}
+        title={title}
+      />
+      <Text htmlFor={id}>Запамʼятати пароль</Text>
       {path === '/login' && (
         <LinkWrapper to="/forgot-pass">
           Забули пароль?

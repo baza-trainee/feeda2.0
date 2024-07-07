@@ -21,6 +21,9 @@ const SecondaryButton = ({
   return (
     <Button
       type="button"
+      title="secondaryButton"
+      name="secondaryButton"
+      id="secondaryButton"
       disabled={disabled}
       onClick={() => clickFunc()}
       style={{

@@ -43,11 +43,13 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
             </>
           )}
 
-          <FormStyled autocomplete="on">
+          <FormStyled autoComplete="on">
             {(pathname === '/register' ||
               pathname === '/login') && (
               <TextInput
-                title={'Логін'}
+                title="Логін"
+                id="login"
+                name="lohin"
                 placeholder="Логін"
                 value={formData.login}
                 onChange={handleFieldChange('login')}
@@ -57,7 +59,9 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
             {(pathname === '/register' ||
               pathname === '/forgot-pass') && (
               <EmailInput
-                title={'E-mail'}
+                title="E-mail"
+                id="EmailInput"
+                name="emailInput"
                 placeholder="E-mail"
                 value={formData.email}
                 onChange={handleFieldChange('email')}
@@ -66,7 +70,9 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
             )}
             {pathname !== '/forgot-pass' && (
               <PasswordInput
-                title={'Пароль'}
+                title="Пароль"
+                id="PasswordInput"
+                name="passwordInput"
                 value={formData.password}
                 onChange={handleFieldChange('password')}
                 autoComplete="current-password"
@@ -74,7 +80,9 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
             )}
             {pathname === '/register' && (
               <PasswordInput
-                title={'Повторіть пароль'}
+                title="Повторіть пароль"
+                id="repeatPassword"
+                name="repeatPassword"
                 value={formData.repeatedPassword}
                 onChange={handleFieldChange(
                   'repeatedPassword'
@@ -83,7 +91,12 @@ const AuthForm = ({ formData, setFormData, onSubmit }) => {
               />
             )}
             {pathname !== '/forgot-pass' && (
-              <CheckboxUI path={pathname} />
+              <CheckboxUI
+                path={pathname}
+                id="checkbox"
+                name="checkbox"
+                title="checkbox"
+              />
             )}
             {pathname === '/register' && (
               <PrimaryButton
