@@ -24,13 +24,19 @@ const PhoneInput = ({
     const validateInput = async () => {
       if (!empty) return;
       let error = '';
-      try {
-        await phoneValidationSchema.validate(
-          { phone: value },
-          { abortEarly: false }
-        );
-      } catch (validationError) {
-        error = validationError.errors.join(' ');
+
+      if (!value) {
+        error =
+          'Поле номера телефона обовʼязкове для заповнення';
+      } else {
+        try {
+          await phoneValidationSchema.validate(
+            { phone: value },
+            { abortEarly: false }
+          );
+        } catch (validationError) {
+          error = validationError.errors.join(' ');
+        }
       }
       setErrorText(error);
     };
@@ -45,9 +51,10 @@ const PhoneInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={id}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{name}</Title>}
       <Input
         type="text"
+        title={title}
         id={id}
         name={name}
         placeholder={placeholder}

@@ -14,10 +14,14 @@ const SettingsHeader = () => {
       <Figure>
         <SettingsPhoto
           src="/SettingsUserPhoto.svg"
-          alt="userPhoto"></SettingsPhoto>
+          alt="userPhoto"
+          title="Фото користувача"></SettingsPhoto>
         <FigcaptionSection>
-          <SettingsName>Олена Лисенко</SettingsName>
+          <SettingsName title="Імʼя користувача">
+            Олена Лисенко
+          </SettingsName>
           <ChangePhotoLink
+            title="Натисніть для зміни фотографії користувача"
             onClick={() => {
               console.log(
                 'Має відкривати додаток для зміни фото'

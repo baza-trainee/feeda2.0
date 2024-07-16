@@ -45,7 +45,7 @@ const DateInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={id}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{name}</Title>}
       <Input
         type="date"
         id={id}

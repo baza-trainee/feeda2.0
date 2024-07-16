@@ -40,152 +40,189 @@ const Sidebar = () => {
       {shouldRenderSidebar(location.pathname) && (
         <>
           <SidebarSection>
-            <section>
-              <PrimaryButton
-                clickFunc={handleDropdownClick}
-                text="Кандидати"
-                disabled={false}
-                fontSize="16px"
-                fontWeight="600"
-                textAlign="left"
-                width="286px">
-                <FaUsers
-                  style={{
-                    width: '18px',
-                    height: '16px',
-                    marginRight: '24px',
-                    marginLeft: '24px',
-                  }}
-                />
-                <span>Кандидати</span>
-                {isDropdownOpen ? (
-                  <IoIosArrowUp
-                    style={{
-                      width: '18px',
-                      height: '16px',
-                      marginLeft: '100px',
-                    }}
-                  />
-                ) : (
-                  <IoIosArrowDown
-                    style={{
-                      width: '18px',
-                      height: '16px',
-                      marginLeft: '100px',
-                    }}
-                  />
+            <nav>
+              <ul>
+                <li>
+                  <PrimaryButton
+                    clickFunc={handleDropdownClick}
+                    text="Кандидати"
+                    title="Бургер меню, що відкриває список кандидатів"
+                    disabled={false}
+                    fontSize="16px"
+                    fontWeight="600"
+                    textAlign="left"
+                    width="286px">
+                    <FaUsers
+                      aria-hidden="true"
+                      style={{
+                        width: '18px',
+                        height: '16px',
+                        marginRight: '24px',
+                        marginLeft: '24px',
+                      }}
+                    />
+                    <span>Кандидати</span>
+                    {isDropdownOpen ? (
+                      <IoIosArrowUp
+                        aria-hidden="true"
+                        style={{
+                          width: '18px',
+                          height: '16px',
+                          marginLeft: '100px',
+                        }}
+                      />
+                    ) : (
+                      <IoIosArrowDown
+                        aria-hidden="true"
+                        style={{
+                          width: '18px',
+                          height: '16px',
+                          marginLeft: '100px',
+                        }}
+                      />
+                    )}
+                  </PrimaryButton>
+                </li>
+                {isDropdownOpen && (
+                  <DropdownMenu>
+                    <ul>
+                      <li>
+                        <SecondaryButton
+                          clickFunc={() =>
+                            navigate('/failed')
+                          }
+                          title="Кнопка, що відкриває сторінку кандидатів 'Не пройшов'"
+                          disabled={false}
+                          width="248px"
+                          height="40px"
+                          textAlign="left"
+                          display="flex"
+                          padding="10px"
+                          borderRadius="4px"
+                          fontSize="16px"
+                          fontWeight="600">
+                          <img
+                            src="/NotChecked.svg"
+                            width="18"
+                            height="18"
+                            alt=""
+                            aria-hidden="true"
+                            style={{
+                              marginRight: '15px',
+                            }}
+                          />
+                          <span>Не пройшов</span>
+                        </SecondaryButton>
+                      </li>
+                      <li>
+                        <SecondaryButton
+                          clickFunc={() =>
+                            navigate('/passed')
+                          }
+                          title="Кнопка, що відкриває сторінку кандидатів 'Пройшов'"
+                          disabled={false}
+                          width="248px"
+                          height="40px"
+                          textAlign="left"
+                          display="flex"
+                          padding="10px"
+                          borderRadius="4px"
+                          fontSize="16px"
+                          fontWeight="600">
+                          <IoCheckmarkDoneSharp
+                            aria-hidden="true"
+                            size={18}
+                            style={{
+                              marginRight: '15px',
+                            }}
+                          />
+                          <span>Пройшов</span>
+                        </SecondaryButton>
+                      </li>
+                      <li>
+                        <SecondaryButton
+                          clickFunc={() => navigate('/add')}
+                          title="Кнопка, що відкриває форму заповнення даних кандидатів"
+                          disabled={false}
+                          width="248px"
+                          height="40px"
+                          textAlign="left"
+                          display="flex"
+                          padding="10px"
+                          borderRadius="4px"
+                          fontSize="16px"
+                          fontWeight="600">
+                          <FiPlus
+                            aria-hidden="true"
+                            size={18}
+                            style={{
+                              marginRight: '15px',
+                            }}
+                          />
+                          <span>Додати кандидата</span>
+                        </SecondaryButton>
+                      </li>
+                    </ul>
+                  </DropdownMenu>
                 )}
-              </PrimaryButton>
-              {isDropdownOpen && (
-                <DropdownMenu>
-                  <SecondaryButton
-                    clickFunc={() => navigate('/failed')}
+                <li>
+                  <PrimaryButton
+                    clickFunc={() => navigate('/settings')}
+                    title="Кнопка, що відкриває сторінку налаштування користувача"
                     disabled={false}
-                    width="248px"
-                    height="40px"
+                    fontSize="16px"
+                    fontWeight="600"
+                    textAlign="left"
+                    width="286px">
+                    <SlSettings
+                      aria-hidden="true"
+                      style={{
+                        width: '18px',
+                        height: '16px',
+                        marginRight: '24px',
+                        marginLeft: '24px',
+                      }}
+                    />
+                    <span>Налаштування</span>
+                  </PrimaryButton>
+                </li>
+              </ul>
+            </nav>
+            <nav>
+              <ul>
+                <li>
+                  <SecondaryButton
+                    disabled={false}
+                    title="Кнопка виходу зі сторінки користувача"
+                    width="286px"
+                    height="56px"
                     textAlign="left"
                     display="flex"
                     padding="10px"
                     borderRadius="4px"
                     fontSize="16px"
-                    fontWeight="600">
-                    <img
-                      src="/NotChecked.svg"
-                      width="18"
-                      height="18"
-                      alt="Not Checked"
+                    fontWeight="600"
+                    marginBottom="16px"
+                    marginRight="0"
+                    alignItems="center"
+                    aria-hidden="true"
+                    clickFunc={() =>
+                      console.log(
+                        'Має виходити на сторінку login та сбрасувати токени'
+                      )
+                    }>
+                    <TbLogout2
+                      aria-hidden="true"
+                      size={24}
                       style={{
                         marginRight: '15px',
                       }}
                     />
-                    <span>Не пройшов</span>
+                    <p>Вийти</p>
                   </SecondaryButton>
-                  <SecondaryButton
-                    clickFunc={() => navigate('/passed')}
-                    disabled={false}
-                    width="248px"
-                    height="40px"
-                    textAlign="left"
-                    display="flex"
-                    padding="10px"
-                    borderRadius="4px"
-                    fontSize="16px"
-                    fontWeight="600">
-                    <IoCheckmarkDoneSharp
-                      size={18}
-                      style={{
-                        marginRight: '15px',
-                      }}
-                    />
-                    <span>Пройшов</span>
-                  </SecondaryButton>
-                  <SecondaryButton
-                    clickFunc={() => navigate('/add')}
-                    disabled={false}
-                    width="248px"
-                    height="40px"
-                    textAlign="left"
-                    display="flex"
-                    padding="10px"
-                    borderRadius="4px"
-                    fontSize="16px"
-                    fontWeight="600">
-                    <FiPlus
-                      size={18}
-                      style={{
-                        marginRight: '15px',
-                      }}
-                    />
-                    <span>Додати кандидата</span>
-                  </SecondaryButton>
-                </DropdownMenu>
-              )}
-              <PrimaryButton
-                clickFunc={() => navigate('/settings')}
-                disabled={false}
-                fontSize="16px"
-                fontWeight="600"
-                textAlign="left"
-                width="286px">
-                <SlSettings
-                  style={{
-                    width: '18px',
-                    height: '16px',
-                    marginRight: '24px',
-                    marginLeft: '24px',
-                  }}
-                />
-                <span>Налаштування</span>
-              </PrimaryButton>
-            </section>
-            <section>
-              <SecondaryButton
-                disabled={false}
-                width="286px"
-                height="56px"
-                textAlign="left"
-                display="flex"
-                padding="10px"
-                borderRadius="4px"
-                fontSize="16px"
-                fontWeight="600"
-                marginBottom="16px"
-                marginRight="0"
-                alignItems="center"
-                clickFunc={() =>
-                  console.log(
-                    'Має виходити на сторінку login та сбрасувати токени'
-                  )
-                }>
-                <TbLogout2
-                  size={24}
-                  style={{
-                    marginRight: '15px',
-                  }}
-                />
-                <p>Вийти</p>
-              </SecondaryButton>
-            </section>
+                </li>
+              </ul>
+            </nav>
           </SidebarSection>
         </>
       )}

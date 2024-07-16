@@ -22,7 +22,7 @@ const SelectOptions = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={id}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{name}</Title>}
       <Select
         title={title}
         name={name}
@@ -30,8 +30,18 @@ const SelectOptions = ({
         placeholder={placeholder}
         value={value}
         onChange={handleFieldChange}>
-        <option value="passed">Пройшов</option>
-        <option value="failed">Не пройшов</option>
+        <option
+          value="passed"
+          aria-setsize="2"
+          aria-posinset="1">
+          Пройшов
+        </option>
+        <option
+          value="failed"
+          aria-setsize="2"
+          aria-posinset="2">
+          Не пройшов
+        </option>
       </Select>
     </Section>
   );

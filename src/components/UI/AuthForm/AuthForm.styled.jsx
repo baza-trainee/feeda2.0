@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AuthContainer = styled.main`
+export const AuthContainer = styled.section`
   display: flex;
   width: 100%;
   align-items: center;

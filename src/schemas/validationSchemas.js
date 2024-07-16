@@ -42,7 +42,8 @@ export const passwordValidationSchema = object().shape({
     .required('Поле вводу паролю не може бути порожнім'),
 });
 
-const phoneRegExp = /^(?!(\+?7|8)\d{10}$)\+?\d{1,3}?\d{9}$/;
+const phoneRegExp =
+  /^(\+?(?!7\d{9,12})\d{1,4})?[\- ]?\(?\d{1,4}\)?[\- ]?\d{1,4}[\- ]?\d{1,4}[\- ]?\d{1,4}[\- ]?\d{1,4}$/;
 export const phoneValidationSchema = object().shape({
   phone: string()
     .required(
@@ -50,6 +51,6 @@ export const phoneValidationSchema = object().shape({
     )
     .matches(
       phoneRegExp,
-      'Неправильний формат номера телефону (наприклад, +380501234567 або 0931234567)'
+      'Неправильний формат номера телефону'
     ),
 });

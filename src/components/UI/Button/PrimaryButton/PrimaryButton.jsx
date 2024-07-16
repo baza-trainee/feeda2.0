@@ -11,11 +11,12 @@ const PrimaryButton = (props) => {
     fontWeight,
     textAlign,
     width,
+    title,
   } = props;
   return (
     <Button
       type="button"
-      title="generalButton"
+      title={title}
       name="generalButton"
       id="generalButton"
       onClick={() => clickFunc()}

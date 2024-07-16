@@ -35,5 +35,5 @@ export const LinkWrapper = styled(NavLink)`
   font-weight: var(--body-large-fw);
   line-height: var(--body-large-lh);
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
 `;

@@ -13,36 +13,36 @@ const SettingsForm = ({ formData, setFormData }) => {
   return (
     <SettingsFormSection autoComplete="on">
       <TextInput
-        title="Імʼя"
+        title="Введіть Ваше імʼя"
         id="name"
-        name="name"
+        name="Імʼя"
         placeholder="Імʼя"
         value={formData.firstName}
         onChange={handleFieldChange('firstName')}
         autoComplete="given-name"
       />
       <EmailInput
-        title="Електронна пошта"
+        title="Введіть Вашу електронну пошту"
         id="Email"
-        name="email"
+        name="Електронна пошта"
         placeholder="Електронна пошта"
         value={formData.email}
         onChange={handleFieldChange('email')}
         autoComplete="email"
       />
       <TextInput
-        title="Прізвище"
+        title="Введіть Ваше прізвище"
         id="surname"
-        name="surname"
+        name="Прізвище"
         placeholder="Прізвище"
         value={formData.secondName}
         onChange={handleFieldChange('secondName')}
         autoComplete="family-name"
       />
       <PhoneInput
-        title="Телефон"
+        title="Введіть Ваш номер телефону"
         id="PhoneInput"
-        name="PhoneInput"
+        name="Телефон"
         placeholder="+380*********"
         value={formData.phone}
         onChange={handleFieldChange('phone')}

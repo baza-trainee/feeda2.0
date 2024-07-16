@@ -17,11 +17,12 @@ const SecondaryButton = ({
   marginBottom,
   marginRight,
   alignItems,
+  title,
 }) => {
   return (
     <Button
       type="button"
-      title="secondaryButton"
+      title={title}
       name="secondaryButton"
       id="secondaryButton"
       disabled={disabled}

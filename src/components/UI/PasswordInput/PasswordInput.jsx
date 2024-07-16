@@ -54,12 +54,13 @@ const PasswordInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={id}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{name}</Title>}
       <InputWrapper>
         <Input
           type={inputType}
           id={id}
           name={name}
+          title={title}
           placeholder="Пароль"
           value={value}
           onChange={handleFieldChange}
