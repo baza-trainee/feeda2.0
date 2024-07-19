@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Section,
-  SectionWrapper,
   Title,
   Select,
 } from './SelectOptions.styled';
@@ -9,6 +8,8 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const SelectOptions = ({
   title,
+  id,
+  name,
   placeholder,
   value,
   setEmpty,
@@ -21,17 +22,27 @@ const SelectOptions = ({
 
   return (
     <Section>
-      <SectionWrapper>
-        {!!title && <Title htmlFor={title}>{title}</Title>}
-        <Select
-          title={title}
-          placeholder={placeholder}
-          value={value}
-          onChange={handleFieldChange}>
-          <option value="passed">Пройшов</option>
-          <option value="failed">Не пройшов</option>
-        </Select>
-      </SectionWrapper>
+      {!!title && <Title htmlFor={id}>{name}</Title>}
+      <Select
+        title={title}
+        name={name}
+        id={id}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleFieldChange}>
+        <option
+          value="passed"
+          aria-setsize="2"
+          aria-posinset="1">
+          Пройшов
+        </option>
+        <option
+          value="failed"
+          aria-setsize="2"
+          aria-posinset="2">
+          Не пройшов
+        </option>
+      </Select>
     </Section>
   );
 };

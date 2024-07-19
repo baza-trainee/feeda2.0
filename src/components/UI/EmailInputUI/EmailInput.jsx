@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { emailValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
-  InputWrapper,
   Input,
   Title,
   ErrorMessage,
@@ -12,9 +11,12 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const EmailInput = ({
   title,
+  autoComplete,
   placeholder,
   value,
   onChange,
+  id,
+  name,
 }) => {
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
@@ -44,20 +46,22 @@ const EmailInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
-      <InputWrapper>
-        <Input
-          type="email"
-          placeholder={placeholder}
-          value={value}
-          onChange={handleFieldChange}
-        />
-        {!!errorText && (
-          <ErrorMessage htmlFor="emailInput">
-            {errorText}
-          </ErrorMessage>
-        )}
-      </InputWrapper>
+      {!!title && <Title htmlFor={id}>{name}</Title>}
+      <Input
+        type="email"
+        id={id}
+        name={name}
+        title={title}
+        placeholder={placeholder}
+        value={value}
+        autoComplete={autoComplete}
+        onChange={handleFieldChange}
+      />
+      {!!errorText && (
+        <ErrorMessage htmlFor="emailInput">
+          {errorText}
+        </ErrorMessage>
+      )}
     </Section>
   );
 };

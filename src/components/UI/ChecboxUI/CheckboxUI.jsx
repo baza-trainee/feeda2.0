@@ -2,22 +2,33 @@
 import React from 'react';
 import {
   Section,
-  CheckboxWrapper,
   Input,
   Text,
   LinkWrapper,
 } from './CheckboxUI.styled';
 
-const CheckboxUI = ({path}) => {
+const CheckboxUI = ({ path, id, name, title, value }) => {
   return (
     <Section>
-      <CheckboxWrapper>
-        <Input id="checkbox" type="checkbox" />
-        <Text htmlFor='checkbox'>
-          
-          Запамʼятати пароль</Text>
-      </CheckboxWrapper>
-      {path==="/login" && <LinkWrapper to="/forgot-pass">Забули пароль?</LinkWrapper>}
+      <Input
+        id={id}
+        type="checkbox"
+        name={name}
+        title={title}
+        value={value}
+      />
+      <Text
+        htmlFor={id}
+        title="Натисніть, щоб запамʼятати пароль">
+        {name}
+      </Text>
+      {path === '/login' && (
+        <LinkWrapper
+          to="/forgot-pass"
+          title="Натисніть, якщо забули пароль">
+          Забули пароль?
+        </LinkWrapper>
+      )}
     </Section>
   );
 };

@@ -9,16 +9,22 @@ const SettingsPassword = ({ formData, setFormData }) => {
     formData
   );
   return (
-    <SettingsPasswordSection>
+    <SettingsPasswordSection autoComplete="on">
       <PasswordInput
-        title="Пароль"
+        title="Введіть Ваш пароль"
+        id="passwordInput"
+        name="Пароль"
         value={formData.password}
         onChange={handleFieldChange('password')}
+        autoComplete="new-password"
       />
       <PasswordInput
-        title="Повторити пароль"
+        title="Повторно введіть ваш пароль"
+        id="repeatPasswordInput"
+        name="Повторити пароль"
         value={formData.repeatedPassword}
         onChange={handleFieldChange('repeatedPassword')}
+        autoComplete="new-password"
       />
     </SettingsPasswordSection>
   );

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { textValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
-  InputWrapper,
   Title,
   Input,
   ErrorMessage,
@@ -12,9 +11,12 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const TextInput = ({
   title,
+  id,
+  name,
   placeholder,
   value,
   onChange,
+  autoComplete,
 }) => {
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
@@ -44,20 +46,22 @@ const TextInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
-      <InputWrapper>
-        <Input
-          type="text"
-          placeholder={placeholder}
-          value={value}
-          onChange={handleFieldChange}
-        />
-        {!!errorText && (
-          <ErrorMessage htmlFor="textInput">
-            {errorText}
-          </ErrorMessage>
-        )}
-      </InputWrapper>
+      {!!title && <Title htmlFor={id}>{name}</Title>}
+      <Input
+        title={title}
+        type="text"
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleFieldChange}
+        autoComplete={autoComplete}
+      />
+      {!!errorText && (
+        <ErrorMessage htmlFor="textInput">
+          {errorText}
+        </ErrorMessage>
+      )}
     </Section>
   );
 };

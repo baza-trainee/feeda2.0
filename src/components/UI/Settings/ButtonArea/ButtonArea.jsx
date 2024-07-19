@@ -8,6 +8,7 @@ const ButtonArea = ({ onSubmit, onReset }) => {
     <ButtonAreaSection>
       <SecondaryButton
         disabled={false}
+        title="Кнопка, що скасовує зміни у формі"
         clickFunc={onReset}
         width="113px"
         height="56px"
@@ -16,6 +17,7 @@ const ButtonArea = ({ onSubmit, onReset }) => {
       </SecondaryButton>
       <PrimaryButton
         disabled={false}
+        title="Кнопка, що застосовує зміни у формі"
         clickFunc={onSubmit}
         width="331px">
         <span>Зберігти зміни</span>

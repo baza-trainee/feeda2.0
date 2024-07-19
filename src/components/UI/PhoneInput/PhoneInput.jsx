@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { phoneValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
-  InputWrapper,
   Title,
   Input,
   ErrorMessage,
@@ -11,9 +10,12 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const PhoneInput = ({
   title,
+  name,
+  id,
   placeholder,
   value,
   onChange,
+  autoComplete,
 }) => {
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
@@ -22,13 +24,19 @@ const PhoneInput = ({
     const validateInput = async () => {
       if (!empty) return;
       let error = '';
-      try {
-        await phoneValidationSchema.validate(
-          { phone: value },
-          { abortEarly: false }
-        );
-      } catch (validationError) {
-        error = validationError.errors.join(' ');
+
+      if (!value) {
+        error =
+          'Поле номера телефона обовʼязкове для заповнення';
+      } else {
+        try {
+          await phoneValidationSchema.validate(
+            { phone: value },
+            { abortEarly: false }
+          );
+        } catch (validationError) {
+          error = validationError.errors.join(' ');
+        }
       }
       setErrorText(error);
     };
@@ -43,15 +51,17 @@ const PhoneInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
-      <InputWrapper>
-        <Input
-          type="text"
-          placeholder={placeholder}
-          value={value}
-          onChange={handleFieldChange}
-        />
-      </InputWrapper>
+      {!!title && <Title htmlFor={id}>{name}</Title>}
+      <Input
+        type="text"
+        title={title}
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleFieldChange}
+        autoComplete={autoComplete}
+      />
       {!!errorText && (
         <ErrorMessage htmlFor={errorText}>
           {errorText}

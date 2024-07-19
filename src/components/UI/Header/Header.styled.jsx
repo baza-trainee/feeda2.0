@@ -20,21 +20,21 @@ export const HeaderLogo = styled.h1`
   letter-spacing: 0%;
 `;
 
-export const MainHeader = styled.div`
+export const MainHeader = styled.section`
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
 `;
 
-export const PageTitle = styled.h1`
+export const PageTitle = styled.h2`
   font-weight: var(--title-medium-fw);
   font-size: var(--headline-large-fs);
   display: flex;
   align-items: center;
 `;
 
-export const UserInfo = styled.div`
+export const UserInfo = styled.figure`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -46,7 +46,7 @@ export const UserPhoto = styled.img`
   margin-right: 16px;
 `;
 
-export const UserName = styled.div`
+export const UserName = styled.figcaption`
   font-weight: var(--title-large-fw);
   font-size: var(--title-large-fs);
 `;

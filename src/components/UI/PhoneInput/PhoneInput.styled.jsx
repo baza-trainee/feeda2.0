@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
-export const Section = styled.div`
+export const Section = styled.section`
   width: 389px;
   height: auto;
-`;
-
-export const InputWrapper = styled.div`
-  position: relative;
 `;
 
 export const Title = styled.label`
@@ -36,7 +32,7 @@ export const Input = styled.input`
   }
 `;
 
-export const ErrorMessage = styled.div`
+export const ErrorMessage = styled.p`
   color: red;
   font-size: 12px;
   margin: 5px;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { dateValidationSchema } from '../../../schemas/validationSchemas';
 import {
   Section,
-  InputWrapper,
   Title,
   Input,
   ErrorMessage,
@@ -11,6 +10,8 @@ import { handleOnChange } from '../../../handlers/handlers';
 
 const DateInput = ({
   title,
+  id,
+  name,
   placeholder,
   value,
   onChange,
@@ -44,15 +45,16 @@ const DateInput = ({
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
-      <InputWrapper>
-        <Input
-          type="date"
-          placeholder={placeholder}
-          value={value}
-          onChange={handleFieldChange}
-        />
-      </InputWrapper>
+      {!!title && <Title htmlFor={id}>{name}</Title>}
+      <Input
+        type="date"
+        id={id}
+        name={name}
+        title={title}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleFieldChange}
+      />
       {!!errorText && (
         <ErrorMessage htmlFor={errorText}>
           {errorText}

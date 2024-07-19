@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SettingsFormSection = styled.div`
+export const SettingsFormSection = styled.section`
   padding: 32px 52px 32px 52px;
   margin-top: 16px;
   width: 100%;

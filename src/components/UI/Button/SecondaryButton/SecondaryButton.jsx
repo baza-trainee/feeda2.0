@@ -17,10 +17,14 @@ const SecondaryButton = ({
   marginBottom,
   marginRight,
   alignItems,
+  title,
 }) => {
   return (
     <Button
       type="button"
+      title={title}
+      name="secondaryButton"
+      id="secondaryButton"
       disabled={disabled}
       onClick={() => clickFunc()}
       style={{

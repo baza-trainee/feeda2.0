@@ -11,7 +11,14 @@ import {
 } from './PasswordInput.styled';
 import { handleOnChange } from '../../../handlers/handlers';
 
-const PasswordInput = ({ title, value, onChange }) => {
+const PasswordInput = ({
+  title,
+  id,
+  name,
+  value,
+  onChange,
+  autoComplete,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [errorText, setErrorText] = useState('');
   const [empty, setEmpty] = useState(false);
@@ -47,20 +54,24 @@ const PasswordInput = ({ title, value, onChange }) => {
 
   return (
     <Section>
-      {!!title && <Title htmlFor={title}>{title}</Title>}
+      {!!title && <Title htmlFor={id}>{name}</Title>}
       <InputWrapper>
         <Input
           type={inputType}
+          id={id}
+          name={name}
+          title={title}
           placeholder="Пароль"
           value={value}
           onChange={handleFieldChange}
+          autoComplete={autoComplete}
         />
-        <label htmlFor="passwordInput">
-          <Icon
-            src="./notEyeIcon.svg"
-            onClick={() => handleEditToggle()}
-          />
-        </label>
+
+        <Icon
+          src="./notEyeIcon.svg"
+          alt="image of hidden password"
+          onClick={() => handleEditToggle()}
+        />
       </InputWrapper>
       {!!errorText && (
         <ErrorMessage>{errorText}</ErrorMessage>

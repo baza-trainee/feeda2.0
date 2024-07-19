@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FailedPage = () => {
-  return <div>Failed Page</div>;
+  return <main>Failed Page</main>;
 };
 
 export default FailedPage;

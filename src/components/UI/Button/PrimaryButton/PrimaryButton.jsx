@@ -11,10 +11,14 @@ const PrimaryButton = (props) => {
     fontWeight,
     textAlign,
     width,
+    title,
   } = props;
   return (
     <Button
       type="button"
+      title={title}
+      name="generalButton"
+      id="generalButton"
       onClick={() => clickFunc()}
       disabled={disabled}
       style={{
